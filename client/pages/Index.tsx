@@ -266,54 +266,57 @@ export default function Index() {
       />
 
       {/* Experience Section */}
-      <section id="experience" className="py-20 md:py-32 px-6 md:px-12">
-        <div className="max-w-4xl mx-auto">
-          <div className="mb-16">
-            <p className="text-accent text-xs uppercase tracking-widest font-semibold mb-4">
-              Journey
-            </p>
-            <h2 className="text-5xl md:text-6xl font-serif font-bold opacity-0 animate-fade-up">
-              Professional Experience
-            </h2>
-          </div>
-
-          <div className="space-y-12">
-            {[
-              {
-                role: "Design Apprentice",
-                company: "Bhawna Rao",
-                description: "Advanced pattern making and couture techniques",
-              },
-              {
-                role: "Jewellery Intern",
-                company: "Sangha Collectives",
-                description: "Design and curation of contemporary jewellery",
-              },
-              {
-                role: "Retail & Client Liaison",
-                company: "Tara Global",
-                description:
-                  "Client relations and retail strategy development",
-              },
-            ].map((exp, idx) => (
-              <div
-                key={idx}
-                className="p-8 rounded-2xl border border-border hover:border-accent/50 transition-colors duration-300 opacity-0 animate-fade-up"
-                style={{ animationDelay: `${0.1 + idx * 0.1}s` }}
-              >
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                  <h3 className="text-2xl font-serif font-bold text-accent">
-                    {exp.role}
-                  </h3>
-                  <p className="text-sm text-muted-foreground md:text-right mt-2 md:mt-0">
-                    {exp.company}
+      <section id="experience">
+        <Timeline
+          data={[
+            {
+              title: "Design Apprentice",
+              content: (
+                <div className="space-y-4">
+                  <p className="text-lg font-semibold text-accent">
+                    Bhawna Rao
+                  </p>
+                  <p className="text-base text-foreground/80">
+                    Advanced pattern making and couture techniques. Worked
+                    extensively on bespoke garment construction, learning
+                    intricate hand stitching methods and precision in draping.
                   </p>
                 </div>
-                <p className="text-base text-foreground/70">{exp.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+              ),
+            },
+            {
+              title: "Jewellery Intern",
+              content: (
+                <div className="space-y-4">
+                  <p className="text-lg font-semibold text-accent">
+                    Sangha Collectives
+                  </p>
+                  <p className="text-base text-foreground/80">
+                    Design and curation of contemporary jewellery. Collaborated
+                    on sustainable design practices and created pieces that
+                    blended traditional craftsmanship with modern aesthetics.
+                  </p>
+                </div>
+              ),
+            },
+            {
+              title: "Retail & Client Liaison",
+              content: (
+                <div className="space-y-4">
+                  <p className="text-lg font-semibold text-accent">
+                    Tara Global
+                  </p>
+                  <p className="text-base text-foreground/80">
+                    Client relations and retail strategy development. Managed
+                    customer interactions, understood market dynamics, and
+                    contributed to business growth through strategic retail
+                    partnerships.
+                  </p>
+                </div>
+              ),
+            },
+          ]}
+        />
       </section>
 
       {/* Footer & Contact */}
