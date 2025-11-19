@@ -1,60 +1,130 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 
+const PRELOADER_IMAGES = [
+  {
+    src: "https://images.unsplash.com/photo-1595777712933-a3f0b06755c9?w=1000&h=800&fit=crop&q=80",
+    alt: "Designer Collection",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1550274455-11107a72e8a8?w=1000&h=800&fit=crop&q=80",
+    alt: "Elegant Fashion",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1558769187-a2e14e5fa5b8?w=1000&h=800&fit=crop&q=80",
+    alt: "Premium Styling",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=1000&h=800&fit=crop&q=80",
+    alt: "Luxury Design",
+  },
+  // Final hero image
+  {
+    src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1000&h=800&fit=crop",
+    alt: "Khushi Lohchab",
+    isHero: true,
+  },
+];
+
 export const LayoutPreloader = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
+  const [isZooming, setIsZooming] = useState(false);
+
+  const isLastImage = currentImageIndex === PRELOADER_IMAGES.length - 1;
+  const currentImage = PRELOADER_IMAGES[currentImageIndex];
 
   useEffect(() => {
+    if (isZooming) {
+      const timer = setTimeout(() => {
+        setIsVisible(false);
+      }, 1200);
+      return () => clearTimeout(timer);
+    }
+
+    if (isLastImage) {
+      const timer = setTimeout(() => {
+        setIsZooming(true);
+      }, 1500);
+      return () => clearTimeout(timer);
+    }
+
     const timer = setTimeout(() => {
-      setIsVisible(false);
-    }, 3000);
+      setCurrentImageIndex((prev) => prev + 1);
+    }, 800);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [currentImageIndex, isLastImage, isZooming]);
 
   const containerVariants = {
     visible: { opacity: 1 },
-    exit: { opacity: 0, transition: { duration: 0.8 } },
+    exit: { opacity: 0, transition: { duration: 0.6 } },
   };
 
-  const contentVariants = {
-    animate: {
-      opacity: [0, 1, 1, 0],
+  const imageVariants = {
+    enter: {
+      opacity: 0,
+      scale: 0.9,
+    },
+    center: {
+      opacity: 1,
+      scale: 1,
       transition: {
-        duration: 3,
-        times: [0, 0.3, 0.7, 1],
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+    exit: {
+      opacity: 0,
+      scale: 1.1,
+      transition: {
+        duration: 0.4,
+        ease: "easeIn",
       },
     },
   };
 
-  const rotateVariants = {
-    animate: {
-      rotate: 360,
+  const zoomVariants = {
+    initial: {
+      scale: 1,
+      opacity: 1,
+    },
+    zoom: {
+      scale: 1.5,
+      opacity: 0,
       transition: {
-        duration: 3,
-        ease: "linear",
+        duration: 1.2,
+        ease: [0.32, 0.72, 0, 1],
       },
     },
   };
 
-  const scaleVariants = {
-    animate: {
-      scale: [0.8, 1, 1, 0.8],
+  const dotVariants = {
+    inactive: {
+      opacity: 0.4,
+      width: "8px",
+    },
+    active: {
+      opacity: 1,
+      width: "24px",
       transition: {
-        duration: 3,
-        times: [0, 0.3, 0.7, 1],
+        width: { duration: 0.3 },
+        opacity: { duration: 0.2 },
       },
     },
   };
 
-  const shimmerVariants = {
-    animate: {
-      backgroundPosition: ["0% 0%", "100% 100%"],
-      transition: {
-        duration: 2,
-        repeat: Infinity,
-        ease: "linear",
-      },
+  const textVariants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.4 },
+    },
+    exit: {
+      opacity: 0,
+      y: -10,
+      transition: { duration: 0.3 },
     },
   };
 
@@ -65,13 +135,97 @@ export const LayoutPreloader = () => {
       variants={containerVariants}
       initial="visible"
       exit="exit"
-      className="fixed inset-0 flex items-center justify-center z-[9999] overflow-hidden"
-      style={{
-        background: "linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--card)) 100%)",
-      }}
+      className="fixed inset-0 flex items-center justify-center z-[9999] bg-background overflow-hidden"
     >
-      {/* Animated background noise overlay */}
-      <div className="absolute inset-0 opacity-20 animate-noise">
+      {/* Image Container with Zoom Effect */}
+      <motion.div
+        className="absolute inset-0 w-full h-full"
+        variants={isZooming ? zoomVariants : undefined}
+        initial={isZooming ? "initial" : undefined}
+        animate={isZooming ? "zoom" : undefined}
+      >
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={`image-${currentImageIndex}`}
+            src={currentImage.src}
+            alt={currentImage.alt}
+            variants={imageVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            className="w-full h-full object-cover"
+          />
+        </AnimatePresence>
+
+        {/* Overlay gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/40" />
+      </motion.div>
+
+      {/* Content - Only show if not zooming */}
+      {!isZooming && (
+        <motion.div
+          className="absolute inset-0 flex flex-col items-center justify-end pb-12 z-10 pointer-events-none"
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.1,
+                delayChildren: 0.2,
+              },
+            },
+            exit: {
+              opacity: 0,
+              transition: {
+                duration: 0.3,
+              },
+            },
+          }}
+        >
+          {/* Hero text - only on final image */}
+          {isLastImage && (
+            <motion.div
+              className="text-center mb-8"
+              variants={textVariants}
+            >
+              <p
+                className="text-xs uppercase tracking-widest font-semibold mb-3"
+                style={{ color: "#C79E8E" }}
+              >
+                Fashion Designer
+              </p>
+              <h1 className="text-5xl md:text-6xl font-serif font-bold text-white mb-1">
+                KHUSHI
+              </h1>
+              <h1 className="text-5xl md:text-6xl font-serif font-bold" style={{ color: "#C79E8E" }}>
+                LOHCHAB
+              </h1>
+            </motion.div>
+          )}
+
+          {/* Progress indicators */}
+          <motion.div
+            className="flex items-center gap-2"
+            variants={textVariants}
+          >
+            {PRELOADER_IMAGES.map((_, index) => (
+              <motion.div
+                key={index}
+                className="h-1 rounded-full bg-white/60"
+                variants={dotVariants}
+                initial="inactive"
+                animate={index === currentImageIndex ? "active" : "inactive"}
+              />
+            ))}
+          </motion.div>
+        </motion.div>
+      )}
+
+      {/* Noise overlay */}
+      <div className="absolute inset-0 opacity-10 pointer-events-none animate-noise mix-blend-overlay">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
           <filter id="noise">
             <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise" />
@@ -80,110 +234,6 @@ export const LayoutPreloader = () => {
           <rect width="100%" height="100%" filter="url(#noise)" opacity="0.15" />
         </svg>
       </div>
-
-      {/* Main content */}
-      <motion.div
-        variants={contentVariants}
-        animate="animate"
-        className="relative z-10 flex flex-col items-center gap-12"
-      >
-        {/* Animated background elements */}
-        <div className="relative w-40 h-40">
-          {/* Outer ring */}
-          <motion.div
-            variants={rotateVariants}
-            animate="animate"
-            className="absolute inset-0 rounded-full border-2 border-transparent"
-            style={{
-              borderTopColor: "#C79E8E",
-              borderRightColor: "#C79E8E",
-            }}
-          />
-
-          {/* Middle ring */}
-          <motion.div
-            variants={rotateVariants}
-            animate="animate"
-            className="absolute inset-6 rounded-full border border-transparent"
-            style={{
-              borderBottomColor: "#C79E8E",
-              borderLeftColor: "#C79E8E",
-              animationDirection: "reverse",
-              animationDuration: "4s",
-            }}
-          />
-
-          {/* Inner pulsing circle */}
-          <motion.div
-            variants={scaleVariants}
-            animate="animate"
-            className="absolute inset-12 rounded-full"
-            style={{
-              background: `linear-gradient(135deg, #C79E8E, rgba(199, 158, 142, 0.3))`,
-            }}
-          />
-
-          {/* Center dot with shimmer */}
-          <motion.div
-            variants={shimmerVariants}
-            animate="animate"
-            className="absolute top-1/2 left-1/2 w-4 h-4 rounded-full -translate-x-1/2 -translate-y-1/2"
-            style={{
-              backgroundColor: "#C79E8E",
-              backgroundImage: "linear-gradient(90deg, #C79E8E, rgba(255,255,255,0.3), #C79E8E)",
-              backgroundSize: "200% 100%",
-            }}
-          />
-        </div>
-
-        {/* Loading text */}
-        <div className="text-center space-y-3">
-          <motion.h2
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-2xl md:text-3xl font-serif font-bold"
-            style={{ color: "#C79E8E" }}
-          >
-            Loading
-          </motion.h2>
-
-          {/* Animated dots */}
-          <div className="flex items-center justify-center gap-2">
-            {[0, 1, 2].map((i) => (
-              <motion.div
-                key={i}
-                className="w-2 h-2 rounded-full"
-                style={{ backgroundColor: "#C79E8E" }}
-                animate={{
-                  y: [0, -8, 0],
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 1.2,
-                  repeat: Infinity,
-                  delay: i * 0.2,
-                }}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* Bottom text */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.6 }}
-          transition={{ delay: 0.5, duration: 0.6 }}
-          className="text-xs uppercase tracking-widest font-semibold"
-          style={{ color: "#C79E8E" }}
-        >
-          Please wait while we prepare your portfolio
-        </motion.p>
-      </motion.div>
-
-      {/* Decorative elements */}
-      <div className="absolute top-10 left-10 w-32 h-32 rounded-full blur-3xl opacity-10" style={{ backgroundColor: "#C79E8E" }} />
-      <div className="absolute bottom-10 right-10 w-40 h-40 rounded-full blur-3xl opacity-10" style={{ backgroundColor: "#C79E8E" }} />
     </motion.div>
   );
 };
