@@ -3,19 +3,19 @@ import { useEffect, useState } from "react";
 
 const PRELOADER_IMAGES = [
   {
-    src: "https://images.unsplash.com/photo-1595777712933-a3f0b06755c9?w=1000&h=800&fit=crop&q=80",
+    src: "https://images.unsplash.com/photo-1595777712933-a3f0b06755c9?w=500&h=500&fit=crop&q=80",
     alt: "Designer Collection",
   },
   {
-    src: "https://images.unsplash.com/photo-1550274455-11107a72e8a8?w=1000&h=800&fit=crop&q=80",
+    src: "https://images.unsplash.com/photo-1550274455-11107a72e8a8?w=500&h=500&fit=crop&q=80",
     alt: "Elegant Fashion",
   },
   {
-    src: "https://images.unsplash.com/photo-1558769187-a2e14e5fa5b8?w=1000&h=800&fit=crop&q=80",
+    src: "https://images.unsplash.com/photo-1558769187-a2e14e5fa5b8?w=500&h=500&fit=crop&q=80",
     alt: "Premium Styling",
   },
   {
-    src: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=1000&h=800&fit=crop&q=80",
+    src: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=500&h=500&fit=crop&q=80",
     alt: "Luxury Design",
   },
   // Final hero image
@@ -51,7 +51,7 @@ export const LayoutPreloader = () => {
 
     const timer = setTimeout(() => {
       setCurrentImageIndex((prev) => prev + 1);
-    }, 800);
+    }, 600);
 
     return () => clearTimeout(timer);
   }, [currentImageIndex, isLastImage, isZooming]);
@@ -63,34 +63,34 @@ export const LayoutPreloader = () => {
 
   const imageVariants = {
     enter: {
+      y: 400,
       opacity: 0,
-      scale: 0.9,
     },
     center: {
+      y: 0,
       opacity: 1,
-      scale: 1,
       transition: {
         duration: 0.5,
         ease: "easeOut",
       },
     },
     exit: {
+      y: -400,
       opacity: 0,
-      scale: 1.1,
       transition: {
-        duration: 0.4,
+        duration: 0.5,
         ease: "easeIn",
       },
     },
   };
 
-  const zoomVariants = {
+  const squareContainerVariants = {
     initial: {
       scale: 1,
       opacity: 1,
     },
     zoom: {
-      scale: 1.5,
+      scale: 2,
       opacity: 0,
       transition: {
         duration: 1.2,
@@ -114,20 +114,6 @@ export const LayoutPreloader = () => {
     },
   };
 
-  const textVariants = {
-    hidden: { opacity: 0, y: 10 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.4 },
-    },
-    exit: {
-      opacity: 0,
-      y: -10,
-      transition: { duration: 0.3 },
-    },
-  };
-
   if (!isVisible) return null;
 
   return (
@@ -137,95 +123,8 @@ export const LayoutPreloader = () => {
       exit="exit"
       className="fixed inset-0 flex items-center justify-center z-[9999] bg-background overflow-hidden"
     >
-      {/* Image Container with Zoom Effect */}
-      <motion.div
-        className="absolute inset-0 w-full h-full"
-        variants={isZooming ? zoomVariants : undefined}
-        initial={isZooming ? "initial" : undefined}
-        animate={isZooming ? "zoom" : undefined}
-      >
-        <AnimatePresence mode="wait">
-          <motion.img
-            key={`image-${currentImageIndex}`}
-            src={currentImage.src}
-            alt={currentImage.alt}
-            variants={imageVariants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            className="w-full h-full object-cover"
-          />
-        </AnimatePresence>
-
-        {/* Overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/40" />
-      </motion.div>
-
-      {/* Content - Only show if not zooming */}
-      {!isZooming && (
-        <motion.div
-          className="absolute inset-0 flex flex-col items-center justify-end pb-12 z-10 pointer-events-none"
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          variants={{
-            hidden: { opacity: 0 },
-            visible: {
-              opacity: 1,
-              transition: {
-                staggerChildren: 0.1,
-                delayChildren: 0.2,
-              },
-            },
-            exit: {
-              opacity: 0,
-              transition: {
-                duration: 0.3,
-              },
-            },
-          }}
-        >
-          {/* Hero text - only on final image */}
-          {isLastImage && (
-            <motion.div
-              className="text-center mb-8"
-              variants={textVariants}
-            >
-              <p
-                className="text-xs uppercase tracking-widest font-semibold mb-3"
-                style={{ color: "#C79E8E" }}
-              >
-                Fashion Designer
-              </p>
-              <h1 className="text-5xl md:text-6xl font-serif font-bold text-white mb-1">
-                KHUSHI
-              </h1>
-              <h1 className="text-5xl md:text-6xl font-serif font-bold" style={{ color: "#C79E8E" }}>
-                LOHCHAB
-              </h1>
-            </motion.div>
-          )}
-
-          {/* Progress indicators */}
-          <motion.div
-            className="flex items-center gap-2"
-            variants={textVariants}
-          >
-            {PRELOADER_IMAGES.map((_, index) => (
-              <motion.div
-                key={index}
-                className="h-1 rounded-full bg-white/60"
-                variants={dotVariants}
-                initial="inactive"
-                animate={index === currentImageIndex ? "active" : "inactive"}
-              />
-            ))}
-          </motion.div>
-        </motion.div>
-      )}
-
-      {/* Noise overlay */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none animate-noise mix-blend-overlay">
+      {/* Background blur elements */}
+      <div className="absolute inset-0 opacity-20 animate-noise">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
           <filter id="noise">
             <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise" />
@@ -234,6 +133,86 @@ export const LayoutPreloader = () => {
           <rect width="100%" height="100%" filter="url(#noise)" opacity="0.15" />
         </svg>
       </div>
+
+      {/* Decorative elements */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl opacity-10" style={{ backgroundColor: "#C79E8E" }} />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl opacity-10" style={{ backgroundColor: "#C79E8E" }} />
+
+      {/* Main carousel square container */}
+      <motion.div
+        variants={isZooming ? squareContainerVariants : undefined}
+        initial={isZooming ? "initial" : undefined}
+        animate={isZooming ? "zoom" : undefined}
+        className="relative w-80 h-80 md:w-96 md:h-96 rounded-2xl overflow-hidden shadow-2xl"
+        style={{
+          boxShadow: `
+            0 20px 25px -5px rgba(0, 0, 0, 0.1),
+            0 0 0 1px rgba(0, 0, 0, 0.05),
+            inset 0 0 0 1px rgba(255, 255, 255, 0.1)
+          `,
+        }}
+      >
+        {/* Image carousel */}
+        <AnimatePresence mode="wait">
+          {!isZooming && (
+            <motion.img
+              key={`image-${currentImageIndex}`}
+              src={currentImage.src}
+              alt={currentImage.alt}
+              variants={imageVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              className="w-full h-full object-cover absolute inset-0"
+            />
+          )}
+        </AnimatePresence>
+
+        {/* Overlay gradient on carousel */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/20 pointer-events-none" />
+
+        {/* Content overlay - only on final image */}
+        {isLastImage && !isZooming && (
+          <motion.div
+            className="absolute inset-0 flex flex-col items-center justify-end pb-8 z-10"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+          >
+            <div className="text-center">
+              <p className="text-xs uppercase tracking-widest font-semibold mb-2" style={{ color: "#C79E8E" }}>
+                Fashion Designer
+              </p>
+              <h1 className="text-4xl md:text-5xl font-serif font-bold text-white mb-1">KHUSHI</h1>
+              <h1 className="text-4xl md:text-5xl font-serif font-bold" style={{ color: "#C79E8E" }}>
+                LOHCHAB
+              </h1>
+            </div>
+          </motion.div>
+        )}
+      </motion.div>
+
+      {/* Progress indicators below carousel */}
+      {!isZooming && (
+        <motion.div
+          className="absolute bottom-24 flex items-center gap-2"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 10 }}
+          transition={{ duration: 0.4, delay: 0.3 }}
+        >
+          {PRELOADER_IMAGES.map((_, index) => (
+            <motion.div
+              key={index}
+              className="h-1 rounded-full bg-white/60"
+              variants={dotVariants}
+              initial="inactive"
+              animate={index === currentImageIndex ? "active" : "inactive"}
+            />
+          ))}
+        </motion.div>
+      )}
     </motion.div>
   );
 };
