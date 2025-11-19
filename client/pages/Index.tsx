@@ -256,14 +256,16 @@ export default function Index() {
       </section>
 
       {/* Portfolio Gallery Section */}
-      <PortfolioGallery
-        title="Complete Portfolio Gallery"
-        archiveButton={{
-          text: "View all works",
-          href: "#contact",
-        }}
-        className="mb-0"
-      />
+      <div id="projects">
+        <PortfolioGallery
+          title="Complete Portfolio Gallery"
+          archiveButton={{
+            text: "View all works",
+            href: "#contact",
+          }}
+          className="mb-0"
+        />
+      </div>
 
       {/* Experience Section */}
       <section id="experience">
