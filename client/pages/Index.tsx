@@ -328,6 +328,16 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Portfolio Gallery Section */}
+      <PortfolioGallery
+        title="Complete Portfolio Gallery"
+        archiveButton={{
+          text: "View all works",
+          href: "#contact",
+        }}
+        className="mb-0"
+      />
+
       {/* Experience Section */}
       <section id="experience" className="py-20 md:py-32 px-6 md:px-12">
         <div className="max-w-4xl mx-auto">
