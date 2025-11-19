@@ -7,69 +7,69 @@
 
 @layer base {
   /**
-   * Jewel Tone Premium Theme
-   * Deep luxury palette with emerald, sapphire, and purple accents
+   * Rich Cream & Rose Gold Premium Theme
+   * Warm, luxurious palette with cream background and rose gold accents
   */
   :root {
-    /* Background - Deep Navy/Charcoal */
-    --background: 220 13% 9%;
-    --foreground: 0 0% 98%;
+    /* Background - Rich Cream */
+    --background: 40 50% 96.8%;
+    --foreground: 15 30% 25%;
 
-    /* Cards - Slightly lighter than background */
-    --card: 220 13% 13%;
-    --card-foreground: 0 0% 98%;
+    /* Cards - Slightly warmer cream */
+    --card: 40 45% 97.8%;
+    --card-foreground: 15 30% 25%;
 
     /* Popover */
-    --popover: 220 13% 13%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 40 45% 97.8%;
+    --popover-foreground: 15 30% 25%;
 
-    /* Primary - Deep Sapphire Blue */
-    --primary: 207 90% 28%;
-    --primary-foreground: 0 0% 98%;
+    /* Primary - Deep Brown */
+    --primary: 15 30% 25%;
+    --primary-foreground: 40 50% 96.8%;
 
-    /* Secondary - Emerald Green */
-    --secondary: 156 45% 35%;
-    --secondary-foreground: 0 0% 98%;
+    /* Secondary - Soft Sage */
+    --secondary: 80 25% 60%;
+    --secondary-foreground: 15 30% 25%;
 
-    /* Muted - Subtle gray-blue */
-    --muted: 220 10% 35%;
-    --muted-foreground: 220 5% 65%;
+    /* Muted - Warm Gray */
+    --muted: 40 20% 70%;
+    --muted-foreground: 15 20% 45%;
 
-    /* Accent - Gold/Champagne */
-    --accent: 45 100% 58%;
-    --accent-foreground: 220 13% 9%;
+    /* Accent - Rose Gold */
+    --accent: 10 65% 65%;
+    --accent-foreground: 40 50% 96.8%;
 
     /* Destructive */
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 40 50% 96.8%;
 
     /* Border & Input */
-    --border: 220 13% 20%;
-    --input: 220 13% 16%;
-    --ring: 45 100% 58%;
+    --border: 40 30% 88%;
+    --input: 40 35% 93%;
+    --ring: 10 65% 65%;
 
     --radius: 0.75rem;
 
     /* Sidebar */
-    --sidebar-background: 220 13% 13%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 207 90% 28%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 156 45% 35%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 220 13% 20%;
-    --sidebar-ring: 45 100% 58%;
+    --sidebar-background: 40 45% 97.8%;
+    --sidebar-foreground: 15 30% 25%;
+    --sidebar-primary: 15 30% 25%;
+    --sidebar-primary-foreground: 40 50% 96.8%;
+    --sidebar-accent: 80 25% 60%;
+    --sidebar-accent-foreground: 15 30% 25%;
+    --sidebar-border: 40 30% 88%;
+    --sidebar-ring: 10 65% 65%;
 
-    /* Jewel Tone Project Colors */
-    --color-florentine: 156 45% 35%;
-    --color-shark: 207 90% 28%;
-    --color-raymond: 268 65% 40%;
-    --color-aquadia: 280 30% 50%;
+    /* Project Colors */
+    --color-florentine: 80 25% 60%;
+    --color-shark: 15 30% 25%;
+    --color-raymond: 10 65% 65%;
+    --color-aquadia: 50 40% 70%;
 
     /* Metallics & Accents */
-    --color-gold: 45 100% 58%;
-    --color-rose-gold: 0 50% 60%;
-    --color-silver: 210 10% 70%;
+    --color-rose-gold: 10 65% 65%;
+    --color-gold: 40 80% 50%;
+    --color-cream: 40 50% 96.8%;
 
     /* Typography */
     --font-serif: "Playfair Display", serif;
@@ -77,42 +77,42 @@
   }
 
   .dark {
-    --background: 220 13% 9%;
-    --foreground: 0 0% 98%;
+    --background: 40 20% 15%;
+    --foreground: 40 50% 96.8%;
 
-    --card: 220 13% 13%;
-    --card-foreground: 0 0% 98%;
+    --card: 40 20% 20%;
+    --card-foreground: 40 50% 96.8%;
 
-    --popover: 220 13% 13%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 40 20% 20%;
+    --popover-foreground: 40 50% 96.8%;
 
-    --primary: 207 90% 28%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 40 50% 96.8%;
+    --primary-foreground: 15 30% 25%;
 
-    --secondary: 156 45% 35%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 80 25% 60%;
+    --secondary-foreground: 40 50% 96.8%;
 
-    --muted: 220 10% 35%;
-    --muted-foreground: 220 5% 65%;
+    --muted: 40 15% 45%;
+    --muted-foreground: 40 30% 75%;
 
-    --accent: 45 100% 58%;
-    --accent-foreground: 220 13% 9%;
+    --accent: 10 65% 65%;
+    --accent-foreground: 40 20% 15%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 40 50% 96.8%;
 
-    --border: 220 13% 20%;
-    --input: 220 13% 16%;
-    --ring: 45 100% 58%;
+    --border: 40 20% 25%;
+    --input: 40 20% 22%;
+    --ring: 10 65% 65%;
 
-    --sidebar-background: 220 13% 13%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 207 90% 28%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 156 45% 35%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 220 13% 20%;
-    --sidebar-ring: 45 100% 58%;
+    --sidebar-background: 40 20% 20%;
+    --sidebar-foreground: 40 50% 96.8%;
+    --sidebar-primary: 40 50% 96.8%;
+    --sidebar-primary-foreground: 15 30% 25%;
+    --sidebar-accent: 80 25% 60%;
+    --sidebar-accent-foreground: 40 50% 96.8%;
+    --sidebar-border: 40 20% 25%;
+    --sidebar-ring: 10 65% 65%;
   }
 }
 
@@ -153,11 +153,25 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: hsl(var(--primary));
+    background: hsl(var(--accent));
     border-radius: var(--radius);
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--secondary));
+    background: hsl(var(--accent) / 0.8);
+  }
+
+  /* Marquee animation for gallery */
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee var(--duration) linear infinite;
   }
 }
