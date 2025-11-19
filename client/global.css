@@ -1,5 +1,5 @@
 /** @import must precede all other statements */
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -7,108 +7,112 @@
 
 @layer base {
   /**
-   * Tailwind CSS theme
-   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
-   * A different format will require also updating the theme in tailwind.config.ts.
+   * Jewel Tone Premium Theme
+   * Deep luxury palette with emerald, sapphire, and purple accents
   */
   :root {
-    /* Background & Base */
-    --background: 39.3 39.5% 96.3%;
-    --foreground: 249.6 68.4% 27.5%;
+    /* Background - Deep Navy/Charcoal */
+    --background: 220 13% 9%;
+    --foreground: 0 0% 98%;
 
-    /* Cards */
-    --card: 0 0% 100%;
-    --card-foreground: 249.6 68.4% 27.5%;
+    /* Cards - Slightly lighter than background */
+    --card: 220 13% 13%;
+    --card-foreground: 0 0% 98%;
 
     /* Popover */
-    --popover: 0 0% 100%;
-    --popover-foreground: 249.6 68.4% 27.5%;
+    --popover: 220 13% 13%;
+    --popover-foreground: 0 0% 98%;
 
-    /* Primary - Midnight Blue */
-    --primary: 249.6 68.4% 27.5%;
-    --primary-foreground: 39.3 39.5% 96.3%;
+    /* Primary - Deep Sapphire Blue */
+    --primary: 207 90% 28%;
+    --primary-foreground: 0 0% 98%;
 
-    /* Secondary - Sage Green */
-    --secondary: 79.5 30.8% 71.8%;
-    --secondary-foreground: 249.6 68.4% 27.5%;
+    /* Secondary - Emerald Green */
+    --secondary: 156 45% 35%;
+    --secondary-foreground: 0 0% 98%;
 
-    /* Muted */
-    --muted: 39.3 10% 88%;
-    --muted-foreground: 249.6 15% 50%;
+    /* Muted - Subtle gray-blue */
+    --muted: 220 10% 35%;
+    --muted-foreground: 220 5% 65%;
 
-    /* Accent - Neon Pink */
-    --accent: 325 100% 50%;
-    --accent-foreground: 0 0% 100%;
+    /* Accent - Gold/Champagne */
+    --accent: 45 100% 58%;
+    --accent-foreground: 220 13% 9%;
 
     /* Destructive */
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     /* Border & Input */
-    --border: 39.3 15% 85%;
-    --input: 0 0% 96%;
-    --ring: 249.6 68.4% 27.5%;
+    --border: 220 13% 20%;
+    --input: 220 13% 16%;
+    --ring: 45 100% 58%;
 
-    --radius: 0rem;
+    --radius: 0.75rem;
 
     /* Sidebar */
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 249.6 68.4% 27.5%;
-    --sidebar-primary: 249.6 68.4% 27.5%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 79.5 30.8% 71.8%;
-    --sidebar-accent-foreground: 249.6 68.4% 27.5%;
-    --sidebar-border: 39.3 15% 85%;
-    --sidebar-ring: 325 100% 50%;
+    --sidebar-background: 220 13% 13%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 207 90% 28%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 156 45% 35%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 220 13% 20%;
+    --sidebar-ring: 45 100% 58%;
 
-    /* Custom Project Colors */
-    --color-florentine: 79.5 30.8% 71.8%;
-    --color-shark: 217.9 66.7% 31%;
-    --color-raymond: 217.9 66.7% 31%;
-    --color-aquadia: 280 30.8% 85.9%;
+    /* Jewel Tone Project Colors */
+    --color-florentine: 156 45% 35%;
+    --color-shark: 207 90% 28%;
+    --color-raymond: 268 65% 40%;
+    --color-aquadia: 280 30% 50%;
+
+    /* Metallics & Accents */
+    --color-gold: 45 100% 58%;
+    --color-rose-gold: 0 50% 60%;
+    --color-silver: 210 10% 70%;
 
     /* Typography */
     --font-serif: "Playfair Display", serif;
-    --font-sans: "Inter", sans-serif;
+    --font-sans: "Poppins", sans-serif;
   }
 
   .dark {
-    --background: 249.6 68.4% 15%;
-    --foreground: 39.3 39.5% 96.3%;
+    --background: 220 13% 9%;
+    --foreground: 0 0% 98%;
 
-    --card: 249.6 68.4% 18%;
-    --card-foreground: 39.3 39.5% 96.3%;
+    --card: 220 13% 13%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 249.6 68.4% 18%;
-    --popover-foreground: 39.3 39.5% 96.3%;
+    --popover: 220 13% 13%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 39.3 39.5% 96.3%;
-    --primary-foreground: 249.6 68.4% 27.5%;
+    --primary: 207 90% 28%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 79.5 30.8% 71.8%;
-    --secondary-foreground: 249.6 68.4% 27.5%;
+    --secondary: 156 45% 35%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 249.6 20% 30%;
-    --muted-foreground: 39.3 30% 75%;
+    --muted: 220 10% 35%;
+    --muted-foreground: 220 5% 65%;
 
-    --accent: 325 100% 60%;
-    --accent-foreground: 0 0% 0%;
+    --accent: 45 100% 58%;
+    --accent-foreground: 220 13% 9%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 249.6 30% 25%;
-    --input: 249.6 30% 22%;
-    --ring: 325 100% 50%;
+    --border: 220 13% 20%;
+    --input: 220 13% 16%;
+    --ring: 45 100% 58%;
 
-    --sidebar-background: 249.6 68.4% 18%;
-    --sidebar-foreground: 39.3 39.5% 96.3%;
-    --sidebar-primary: 39.3 39.5% 96.3%;
-    --sidebar-primary-foreground: 249.6 68.4% 27.5%;
-    --sidebar-accent: 79.5 30.8% 71.8%;
-    --sidebar-accent-foreground: 249.6 68.4% 27.5%;
-    --sidebar-border: 249.6 30% 25%;
-    --sidebar-ring: 325 100% 60%;
+    --sidebar-background: 220 13% 13%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 207 90% 28%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 156 45% 35%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 220 13% 20%;
+    --sidebar-ring: 45 100% 58%;
   }
 }
 
@@ -124,6 +128,7 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-serif);
+    font-weight: 700;
   }
 
   :where(p, span, li, a, button, label, td, th) {
@@ -135,5 +140,24 @@
   code {
     overflow-x: auto;
     white-space: pre;
+  }
+
+  /* Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: var(--radius);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--secondary));
   }
 }
