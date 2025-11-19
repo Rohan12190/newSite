@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ExternalLink, Sparkles } from "lucide-react";
 
 export default function Index() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -16,115 +16,190 @@ export default function Index() {
     <div className="w-full bg-background text-foreground">
       {/* Navigation */}
       <nav
-        className={`fixed top-0 right-0 z-50 px-8 py-6 transition-all duration-300 ${
-          isScrolled ? "bg-background/95 backdrop-blur-sm" : "bg-transparent"
+        className={`fixed top-0 right-0 z-50 px-8 py-6 transition-all duration-500 ${
+          isScrolled
+            ? "bg-background/80 backdrop-blur-md border-b border-border"
+            : "bg-transparent"
         }`}
       >
-        <ul className="flex gap-8 text-sm font-medium tracking-wide">
+        <ul className="flex gap-8 text-sm font-semibold tracking-wider">
           <li>
-            <a href="#about" className="hover:text-accent transition-colors">
+            <a
+              href="#about"
+              className="hover:text-accent transition-colors duration-300"
+            >
               About
             </a>
           </li>
           <li>
-            <a href="#projects" className="hover:text-accent transition-colors">
+            <a
+              href="#projects"
+              className="hover:text-accent transition-colors duration-300"
+            >
               Projects
             </a>
           </li>
           <li>
             <a
               href="#experience"
-              className="hover:text-accent transition-colors"
+              className="hover:text-accent transition-colors duration-300"
             >
               Experience
             </a>
           </li>
           <li>
-            <a href="#contact" className="hover:text-accent transition-colors">
+            <a
+              href="#contact"
+              className="hover:text-accent transition-colors duration-300"
+            >
               Contact
             </a>
           </li>
         </ul>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
-        {/* Video Background */}
-        <div className="absolute inset-0 w-full h-full">
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/50 z-10" />
-          <div className="absolute inset-0 bg-primary/20 mix-blend-multiply z-10" />
-          <video
-            autoPlay
-            muted
-            loop
-            className="w-full h-full object-cover"
-            poster="/placeholder.svg"
+      {/* Bento Hero Section */}
+      <section className="relative pt-20 pb-20 px-6 md:px-12 max-w-7xl mx-auto">
+        {/* Decorative Background Elements */}
+        <div className="absolute top-0 left-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+
+        <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[300px] md:auto-rows-[350px]">
+          {/* Main Hero Box - Spans 2 cols x 2 rows */}
+          <div
+            className="md:col-span-2 md:row-span-2 rounded-2xl overflow-hidden group cursor-pointer relative opacity-0 animate-fade-up"
+            style={{ animationDelay: "0.1s" }}
           >
-            <source src="/video.mp4" type="video/mp4" />
-          </video>
-        </div>
-
-        {/* Hero Content */}
-        <div className="relative z-20 text-center space-y-6">
-          <div className="space-y-2">
-            <p
-              className="text-sm uppercase tracking-widest font-sans opacity-0 animate-fade-up"
-              style={{ animationDelay: "0.2s" }}
-            >
-              Fashion Designer
-            </p>
-            <h1
-              className="text-7xl md:text-8xl font-serif font-bold text-white opacity-0 animate-zoom-fade"
-              style={{ animationDelay: "0.4s" }}
-            >
-              KHUSHI LOHCHAB
-            </h1>
+            <img
+              src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1000&h=800&fit=crop"
+              alt="Khushi Lohchab"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+            <div className="absolute bottom-8 left-8 z-20">
+              <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-2">
+                Fashion Designer
+              </p>
+              <h1 className="text-5xl md:text-6xl font-serif font-bold text-white">
+                KHUSHI
+              </h1>
+              <h1 className="text-5xl md:text-6xl font-serif font-bold text-accent">
+                LOHCHAB
+              </h1>
+            </div>
           </div>
-        </div>
 
-        {/* CTA Arrow */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-          <div className="animate-pulse-soft cursor-pointer">
-            <ChevronDown className="w-6 h-6 text-white" />
+          {/* Top Right - Small accent box */}
+          <div
+            className="rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 backdrop-blur-md border border-primary/30 p-6 flex flex-col justify-between opacity-0 animate-fade-up"
+            style={{ animationDelay: "0.2s" }}
+          >
+            <Sparkles className="w-8 h-8 text-accent" />
+            <div>
+              <p className="text-accent text-xs uppercase tracking-widest font-semibold">
+                Specialty
+              </p>
+              <h3 className="text-lg font-serif font-bold mt-2">
+                Couture Design
+              </h3>
+            </div>
+          </div>
+
+          {/* Middle Right - Image box */}
+          <div
+            className="rounded-2xl overflow-hidden opacity-0 animate-fade-up"
+            style={{ animationDelay: "0.3s" }}
+          >
+            <img
+              src="https://images.unsplash.com/photo-1595777712933-a3f0b06755c9?w=600&h=350&fit=crop"
+              alt="Fashion Design"
+              className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+            />
+          </div>
+
+          {/* Bottom Left - Stats */}
+          <div
+            className="rounded-2xl bg-gradient-to-br from-secondary/20 to-primary/20 backdrop-blur-md border border-secondary/30 p-6 flex flex-col justify-between opacity-0 animate-fade-up"
+            style={{ animationDelay: "0.4s" }}
+          >
+            <div>
+              <p className="text-accent text-xs uppercase tracking-widest font-semibold">
+                Experience
+              </p>
+              <h3 className="text-3xl font-serif font-bold mt-3">5+</h3>
+            </div>
+            <p className="text-sm text-foreground/70">Years in Fashion</p>
+          </div>
+
+          {/* Bottom Middle - CTA Box */}
+          <div
+            className="rounded-2xl bg-gradient-to-br from-accent/20 to-accent/10 backdrop-blur-md border border-accent/30 p-6 flex items-center justify-center opacity-0 animate-fade-up hover:border-accent/60 transition-colors duration-300 cursor-pointer group"
+            style={{ animationDelay: "0.5s" }}
+          >
+            <div className="text-center">
+              <ChevronDown className="w-6 h-6 text-accent mx-auto mb-2 group-hover:translate-y-1 transition-transform duration-300" />
+              <p className="text-sm font-semibold">Scroll to explore</p>
+            </div>
+          </div>
+
+          {/* Bottom Right - Another image */}
+          <div
+            className="rounded-2xl overflow-hidden opacity-0 animate-fade-up"
+            style={{ animationDelay: "0.6s" }}
+          >
+            <img
+              src="https://images.unsplash.com/photo-1578689327459-bda7361f54a5?w=600&h=350&fit=crop"
+              alt="Elegant Fashion"
+              className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+            />
           </div>
         </div>
       </section>
 
       {/* Design Philosophy Section */}
-      <section id="about" className="py-20 md:py-32 px-6 md:px-12 max-w-7xl mx-auto">
+      <section
+        id="about"
+        className="py-20 md:py-32 px-6 md:px-12 max-w-7xl mx-auto"
+      >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-start mb-16">
           {/* Portrait */}
           <div
-            className="h-96 md:h-[500px] bg-muted rounded-lg overflow-hidden opacity-0 animate-fade-up"
+            className="h-96 md:h-[500px] rounded-2xl overflow-hidden opacity-0 animate-fade-up"
             style={{ animationDelay: "0.1s" }}
           >
-            <div className="w-full h-full bg-gradient-to-br from-secondary to-primary/20 flex items-center justify-center">
-              <span className="text-muted-foreground text-sm">
-                Portrait Image
-              </span>
-            </div>
+            <img
+              src="https://images.unsplash.com/photo-1549887534-7197a03d3fdc?w=600&h=700&fit=crop"
+              alt="Portrait"
+              className="w-full h-full object-cover"
+            />
           </div>
 
           {/* Philosophy Text */}
           <div className="space-y-8">
-            <h2
-              className="text-5xl md:text-6xl font-serif font-bold opacity-0 animate-fade-up"
-              style={{ animationDelay: "0.2s" }}
-            >
-              Design Philosophy
-            </h2>
+            <div>
+              <p className="text-accent text-xs uppercase tracking-widest font-semibold mb-4">
+                About Me
+              </p>
+              <h2
+                className="text-5xl md:text-6xl font-serif font-bold opacity-0 animate-fade-up"
+                style={{ animationDelay: "0.2s" }}
+              >
+                Design Philosophy
+              </h2>
+            </div>
 
             <div
               className="space-y-6 text-base md:text-lg leading-relaxed opacity-0 animate-fade-up"
               style={{ animationDelay: "0.3s" }}
             >
-              <p>
+              <p className="text-foreground/90">
                 My approach to fashion design merges meticulous technical
                 craftsmanship with bold creative vision. Every piece tells a
                 story through intentional silhouettes, innovative construction,
                 and thoughtful material selection.
               </p>
-              <p>
+              <p className="text-foreground/90">
                 I believe in designing for the present while honoring textile
                 traditions, creating pieces that celebrate individuality and
                 empower the wearer. Fashion is not just about aesthetics—it's a
@@ -148,25 +223,25 @@ export default function Index() {
             {
               title: "Creative Expression",
               skills: [
-                "Couture Conceptualisation",
+                "Couture Design",
                 "Editorial Styling",
                 "Trend Forecasting",
               ],
             },
             {
               title: "Digital Fluency",
-              skills: ["CLO 3D", "Adobe Illustrator", "Photoshop", "Procreate"],
+              skills: ["CLO 3D", "Adobe Suite", "Procreate"],
             },
           ].map((skill, idx) => (
             <div
               key={idx}
-              className="space-y-4 opacity-0 animate-fade-up"
+              className="p-8 rounded-2xl bg-gradient-to-br from-card to-card/50 border border-border hover:border-accent/50 transition-colors duration-300 opacity-0 animate-fade-up"
               style={{ animationDelay: `${0.4 + idx * 0.1}s` }}
             >
-              <h3 className="text-xl font-serif font-bold text-primary">
+              <h3 className="text-xl font-serif font-bold text-accent mb-6">
                 {skill.title}
               </h3>
-              <ul className="space-y-2">
+              <ul className="space-y-3">
                 {skill.skills.map((item, i) => (
                   <li key={i} className="text-base text-foreground/80">
                     <span className="font-semibold">{item}</span>
@@ -181,12 +256,17 @@ export default function Index() {
       {/* Projects Section */}
       <section
         id="projects"
-        className="py-20 md:py-32 px-6 md:px-12 bg-muted/30"
+        className="py-20 md:py-32 px-6 md:px-12 bg-card/30"
       >
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-5xl md:text-6xl font-serif font-bold mb-16 opacity-0 animate-fade-up">
-            Featured Projects
-          </h2>
+          <div className="mb-16">
+            <p className="text-accent text-xs uppercase tracking-widest font-semibold mb-4">
+              Portfolio
+            </p>
+            <h2 className="text-5xl md:text-6xl font-serif font-bold opacity-0 animate-fade-up">
+              Featured Projects
+            </h2>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
             {[
@@ -194,21 +274,29 @@ export default function Index() {
                 name: "The Florentine Hourglass",
                 color: "florentine",
                 offset: "md:translate-y-0",
+                image:
+                  "https://images.unsplash.com/photo-1558769189-98d4b482d413?w=800&h=600&fit=crop",
               },
               {
                 name: "Flying Shark",
                 color: "shark",
                 offset: "md:translate-y-12",
+                image:
+                  "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop",
               },
               {
                 name: "Raymond Collection",
                 color: "raymond",
                 offset: "md:translate-y-0",
+                image:
+                  "https://images.unsplash.com/photo-1595614535368-6b4ee3b999b3?w=800&h=600&fit=crop",
               },
               {
-                name: "Aquadia",
+                name: "Aquadia Bloom",
                 color: "aquadia",
                 offset: "md:translate-y-12",
+                image:
+                  "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&h=600&fit=crop",
               },
             ].map((project, idx) => (
               <div
@@ -217,8 +305,14 @@ export default function Index() {
                 style={{ animationDelay: `${0.1 + idx * 0.1}s` }}
               >
                 <div
-                  className={`relative h-96 md:h-[450px] bg-gradient-to-br from-${project.color} to-${project.color}/50 rounded-lg overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105`}
+                  className={`relative h-96 md:h-[450px] rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 hover:shadow-2xl`}
                 >
+                  <img
+                    src={project.image}
+                    alt={project.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   <div className="absolute inset-0 flex items-end justify-start p-8">
                     <h3
                       className={`text-2xl md:text-3xl font-serif font-bold text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300`}
@@ -236,9 +330,14 @@ export default function Index() {
       {/* Experience Section */}
       <section id="experience" className="py-20 md:py-32 px-6 md:px-12">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-5xl md:text-6xl font-serif font-bold mb-16 opacity-0 animate-fade-up">
-            Professional Experience
-          </h2>
+          <div className="mb-16">
+            <p className="text-accent text-xs uppercase tracking-widest font-semibold mb-4">
+              Journey
+            </p>
+            <h2 className="text-5xl md:text-6xl font-serif font-bold opacity-0 animate-fade-up">
+              Professional Experience
+            </h2>
+          </div>
 
           <div className="space-y-12">
             {[
@@ -261,16 +360,14 @@ export default function Index() {
             ].map((exp, idx) => (
               <div
                 key={idx}
-                className="opacity-0 animate-fade-up space-y-2"
-                style={{
-                  animationDelay: `${0.1 + idx * 0.1}s`,
-                }}
+                className="p-8 rounded-2xl border border-border hover:border-accent/50 transition-colors duration-300 opacity-0 animate-fade-up"
+                style={{ animationDelay: `${0.1 + idx * 0.1}s` }}
               >
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-                  <h3 className="text-2xl font-serif font-bold text-primary">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                  <h3 className="text-2xl font-serif font-bold text-accent">
                     {exp.role}
                   </h3>
-                  <p className="text-sm text-muted-foreground md:text-right">
+                  <p className="text-sm text-muted-foreground md:text-right mt-2 md:mt-0">
                     {exp.company}
                   </p>
                 </div>
@@ -284,56 +381,78 @@ export default function Index() {
       {/* Footer & Contact */}
       <footer
         id="contact"
-        className="bg-primary text-primary-foreground py-20 px-6 md:px-12"
+        className="bg-gradient-to-b from-card to-background py-20 px-6 md:px-12 border-t border-border"
       >
         <div className="max-w-7xl mx-auto">
+          <div className="mb-16">
+            <p className="text-accent text-xs uppercase tracking-widest font-semibold mb-4">
+              Get In Touch
+            </p>
+            <h2 className="text-4xl md:text-5xl font-serif font-bold">
+              Let's Create Something Beautiful
+            </h2>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
             {/* Contact Info */}
-            <div className="space-y-4 opacity-0 animate-fade-up" style={{ animationDelay: "0.1s" }}>
+            <div
+              className="space-y-6 opacity-0 animate-fade-up"
+              style={{ animationDelay: "0.1s" }}
+            >
               <h3 className="text-lg font-semibold uppercase tracking-wide">
                 Contact
               </h3>
-              <div className="space-y-2 text-sm">
-                <p>
-                  <span className="opacity-70">Email: </span>
-                  <a href="mailto:khushi@example.com" className="hover:underline">
+              <div className="space-y-3">
+                <p className="text-sm">
+                  <span className="text-muted-foreground">Email: </span>
+                  <a
+                    href="mailto:khushi@example.com"
+                    className="text-accent hover:underline"
+                  >
                     khushi@example.com
                   </a>
                 </p>
-                <p>
-                  <span className="opacity-70">Phone: </span>
-                  <a href="tel:+919876543210" className="hover:underline">
+                <p className="text-sm">
+                  <span className="text-muted-foreground">Phone: </span>
+                  <a
+                    href="tel:+919876543210"
+                    className="text-accent hover:underline"
+                  >
                     +91 98765 43210
                   </a>
                 </p>
-                <p>
-                  <span className="opacity-70">Location: </span>
-                  Mumbai, India
+                <p className="text-sm">
+                  <span className="text-muted-foreground">Location: </span>
+                  <span>Mumbai, India</span>
                 </p>
               </div>
             </div>
 
             {/* Education */}
-            <div className="space-y-4 opacity-0 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+            <div
+              className="space-y-6 opacity-0 animate-fade-up"
+              style={{ animationDelay: "0.2s" }}
+            >
               <h3 className="text-lg font-semibold uppercase tracking-wide">
                 Education
               </h3>
-              <div className="space-y-2 text-sm">
-                <p>
-                  <span className="font-semibold">NIFT Mumbai</span>
-                  <br />
-                  <span className="opacity-70">B.Des 2022-2026</span>
-                </p>
-                <p>
-                  <span className="font-semibold">Royal International School</span>
-                  <br />
-                  <span className="opacity-70">Higher Secondary 2021</span>
-                </p>
+              <div className="space-y-4 text-sm">
+                <div>
+                  <p className="font-semibold">NIFT Mumbai</p>
+                  <p className="text-muted-foreground">B.Des 2022-2026</p>
+                </div>
+                <div>
+                  <p className="font-semibold">Royal International School</p>
+                  <p className="text-muted-foreground">Higher Secondary 2021</p>
+                </div>
               </div>
             </div>
 
             {/* Portfolio Link */}
-            <div className="space-y-4 opacity-0 animate-fade-up" style={{ animationDelay: "0.3s" }}>
+            <div
+              className="space-y-6 opacity-0 animate-fade-up"
+              style={{ animationDelay: "0.3s" }}
+            >
               <h3 className="text-lg font-semibold uppercase tracking-wide">
                 Portfolio
               </h3>
@@ -341,14 +460,15 @@ export default function Index() {
                 href="https://www.behance.net/gallery/221695531/portfolio"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block text-sm hover:underline opacity-90 hover:opacity-100 transition-opacity"
+                className="inline-flex items-center gap-2 text-accent hover:gap-3 transition-all text-sm font-semibold"
               >
-                View Full Portfolio on Behance →
+                View Full Portfolio
+                <ExternalLink className="w-4 h-4" />
               </a>
             </div>
           </div>
 
-          <div className="border-t border-primary-foreground/20 pt-8 text-center text-sm opacity-70">
+          <div className="border-t border-border pt-8 text-center text-sm text-muted-foreground">
             <p>© 2024 Khushi Lohchab. All rights reserved.</p>
           </div>
         </div>
