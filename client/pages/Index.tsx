@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ChevronDown, ExternalLink, Sparkles } from "lucide-react";
+import { PortfolioGallery } from "@/components/ui/portfolio-gallery";
 
 export default function Index() {
   const [isScrolled, setIsScrolled] = useState(false);
