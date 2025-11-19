@@ -65,9 +65,9 @@ export default {
         shark: "hsl(var(--color-shark))",
         raymond: "hsl(var(--color-raymond))",
         aquadia: "hsl(var(--color-aquadia))",
-        gold: "hsl(var(--color-gold))",
         "rose-gold": "hsl(var(--color-rose-gold))",
-        silver: "hsl(var(--color-silver))",
+        gold: "hsl(var(--color-gold))",
+        cream: "hsl(var(--color-cream))",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -167,6 +167,14 @@ export default {
             transform: "translateY(-10px)",
           },
         },
+        "marquee": {
+          from: {
+            transform: "translateX(0)",
+          },
+          to: {
+            transform: "translateX(calc(-100% - var(--gap)))",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -179,6 +187,7 @@ export default {
         "pulse-glow": "pulse-glow 2s ease-in-out infinite",
         "shimmer": "shimmer 3s ease-in-out infinite",
         "float": "float 3s ease-in-out infinite",
+        "marquee": "marquee var(--duration) linear infinite",
       },
     },
   },
