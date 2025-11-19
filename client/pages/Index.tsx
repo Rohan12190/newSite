@@ -17,6 +17,7 @@ export default function Index() {
 
   return (
     <div className="w-full bg-background text-foreground">
+      <PageLoader />
       {/* Navigation */}
       <nav
         className={`fixed top-0 right-0 z-50 px-8 py-6 transition-all duration-500 ${
