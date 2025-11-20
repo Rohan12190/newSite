@@ -209,7 +209,10 @@ export function PortfolioGallery({
                     <div
                       key={`${i}-${index}`}
                       className="group cursor-pointer flex-shrink-0"
-                      onClick={() => onImageClick?.(index)}
+                      onClick={() => {
+                        setSelectedImageIndex(index);
+                        onImageClick?.(index);
+                      }}
                     >
                       <div
                         className="relative aspect-video w-64 rounded-xl overflow-hidden transition-transform duration-300 group-hover:scale-105"
