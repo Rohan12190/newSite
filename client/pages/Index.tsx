@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { ChevronDown, ExternalLink, Sparkles } from "lucide-react";
+import { ChevronDown, ExternalLink, Sparkles, Home, User, Briefcase, Mail } from "lucide-react";
 import { PortfolioGallery } from "@/components/ui/portfolio-gallery";
 import { Timeline } from "@/components/ui/timeline";
+import { FloatingNav } from "@/components/ui/floating-navbar";
 
 export default function Index() {
   const [isScrolled, setIsScrolled] = useState(false);
