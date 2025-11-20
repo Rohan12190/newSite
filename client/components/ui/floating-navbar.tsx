@@ -49,10 +49,13 @@ export const FloatingNav = ({
             </span>
           </a>
         ))}
-        <button className="border text-sm font-semibold relative border-border text-foreground px-4 py-2 rounded-full hover:bg-foreground/5 transition-colors">
-          <span>Login</span>
+        <a
+          href="#archives"
+          className="border text-sm font-semibold relative border-border text-foreground px-4 py-2 rounded-full hover:bg-foreground/5 transition-colors inline-block"
+        >
+          <span>Portfolio</span>
           <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-accent to-transparent h-px" />
-        </button>
+        </a>
       </motion.nav>
     </AnimatePresence>
   );
