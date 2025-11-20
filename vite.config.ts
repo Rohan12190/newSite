@@ -8,18 +8,18 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
     fs: {
-      // Security: Keeping file access restricted to client and shared folders
+      // Configuration remains, but the server folder is still denied
       allow: ["./client", "./shared"],
       deny: [".env", ".env.*", "*.{crt,pem}", "**/.git/**", "server/**"],
     },
   },
   build: {
-    // Setting output directory to 'dist' for standard static Vercel deployment
+    // Set output directory to 'dist' for standard static Vercel deployment
     outDir: "dist",
     emptyOutDir: true,
   },
-  // Removed expressPlugin() as no backend is needed
-  plugins: [react()],
+  // Removed custom expressPlugin as backend is eliminated
+  plugins: [react()], 
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./client"),
