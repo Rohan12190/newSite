@@ -5,61 +5,32 @@ import { Timeline } from "@/components/ui/timeline";
 import { FloatingNav } from "@/components/ui/floating-navbar";
 
 export default function Index() {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const navItems = [
+    {
+      name: "About",
+      link: "#about",
+      icon: <User className="h-4 w-4" />,
+    },
+    {
+      name: "Projects",
+      link: "#projects",
+      icon: <Briefcase className="h-4 w-4" />,
+    },
+    {
+      name: "Experience",
+      link: "#experience",
+      icon: <Home className="h-4 w-4" />,
+    },
+    {
+      name: "Contact",
+      link: "#contact",
+      icon: <Mail className="h-4 w-4" />,
+    },
+  ];
 
   return (
     <div className="w-full bg-background text-foreground">
-      {/* Navigation */}
-      <nav
-        className={`fixed top-0 right-0 z-50 px-8 py-6 transition-all duration-500 ${
-          isScrolled
-            ? "bg-background/80 backdrop-blur-md border-b border-border"
-            : "bg-transparent"
-        }`}
-      >
-        <ul className="flex gap-8 text-sm font-semibold tracking-wider">
-          <li>
-            <a
-              href="#about"
-              className="hover:text-accent transition-colors duration-300"
-            >
-              About
-            </a>
-          </li>
-          <li>
-            <a
-              href="#projects"
-              className="hover:text-accent transition-colors duration-300"
-            >
-              Projects
-            </a>
-          </li>
-          <li>
-            <a
-              href="#experience"
-              className="hover:text-accent transition-colors duration-300"
-            >
-              Experience
-            </a>
-          </li>
-          <li>
-            <a
-              href="#contact"
-              className="hover:text-accent transition-colors duration-300"
-            >
-              Contact
-            </a>
-          </li>
-        </ul>
-      </nav>
+      <FloatingNav navItems={navItems} />
 
       {/* Bento Hero Section */}
       <section className="relative pt-20 pb-20 px-6 md:px-12 max-w-7xl mx-auto">
