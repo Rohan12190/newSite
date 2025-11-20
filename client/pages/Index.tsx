@@ -148,14 +148,23 @@ export default function Index() {
 
           {/* Bottom Right - Another image */}
           <div
-            className="rounded-2xl overflow-hidden opacity-0 animate-fade-up"
+            className="rounded-2xl overflow-hidden opacity-0 animate-fade-up relative group cursor-pointer"
             style={{ animationDelay: "0.6s" }}
           >
             <img
               src="https://images.unsplash.com/photo-1578689327459-bda7361f54a5?w=600&h=350&fit=crop"
               alt="Elegant Fashion"
-              className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
             />
+            {/* Gradient overlay on hover */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            {/* Text overlay */}
+            <div className="absolute inset-0 flex items-end justify-start p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                <p className="text-white text-sm font-semibold">Elegant Fashion</p>
+                <p className="text-white/70 text-xs">Premium Collection</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
