@@ -45,6 +45,7 @@ export function PortfolioGallery({
   marqueeRepeat = 4,
 }: PortfolioGalleryProps) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
 
   const defaultImages = [
     {
