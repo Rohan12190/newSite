@@ -240,6 +240,63 @@ export function PortfolioGallery({
           </div>
         </div>
       </div>
+
+      {/* Image Modal/Lightbox */}
+      <AnimatePresence>
+        {selectedImageIndex !== null && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-black/80 backdrop-blur-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            onClick={() => setSelectedImageIndex(null)}
+          >
+            {/* Modal content */}
+            <motion.div
+              className="relative max-w-4xl w-full"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Image container - 3/4 of screen */}
+              <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-black/50">
+                <img
+                  src={images[selectedImageIndex]?.src || "/placeholder.svg"}
+                  alt={images[selectedImageIndex]?.alt || "Selected image"}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Close button */}
+              <button
+                onClick={() => setSelectedImageIndex(null)}
+                className="absolute -top-12 right-0 md:-top-16 md:right-0 p-2 text-white hover:text-accent transition-colors"
+                aria-label="Close"
+              >
+                <X className="w-8 h-8 md:w-10 md:h-10" />
+              </button>
+
+              {/* Image title and info section */}
+              <motion.div
+                className="mt-6 p-4 md:p-6 bg-card rounded-lg border border-border"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+              >
+                <h3 className="text-xl md:text-2xl font-serif font-bold text-foreground mb-2">
+                  {images[selectedImageIndex]?.title || images[selectedImageIndex]?.alt}
+                </h3>
+                <p className="text-foreground/70 text-sm md:text-base">
+                  Click the close button or click outside to dismiss
+                </p>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
