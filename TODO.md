@@ -1,3 +1,0 @@
-- [ ] Update portfolio-gallery.tsx defaultImages array to use card6-10 and back6-10 instead of reusing 1-5
-- [ ] Update Index.tsx middle right image box to use /main3.jpeg instead of the broken Unsplash link
-- [ ] Update Index.tsx bottom middle CTA box to display /main4.jpeg as an image instead of the scroll CTA
