@@ -45,7 +45,9 @@ export function PortfolioGallery({
   marqueeRepeat = 4,
 }: PortfolioGalleryProps) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
+    null,
+  );
 
   const defaultImages = [
     {
@@ -120,7 +122,9 @@ export function PortfolioGallery({
 
         {/* Desktop 3D overlapping layout - hidden on mobile */}
         <div className="hidden md:block relative overflow-hidden h-[400px] -mb-[200px]">
-          <div className={`flex ${spacing} pb-8 pt-40 items-end justify-center`}>
+          <div
+            className={`flex ${spacing} pb-8 pt-40 items-end justify-center`}
+          >
             {images.map((image, index) => {
               // Calculate stagger height - peak in middle, descending to edges
               const totalImages = images.length;
@@ -134,7 +138,11 @@ export function PortfolioGallery({
                 hoveredIndex !== null && hoveredIndex !== index;
 
               // When hovering: hovered card moves to consistent top position, others move to baseline
-              const yOffset = isHovered ? -120 : isOtherHovered ? 0 : -staggerOffset;
+              const yOffset = isHovered
+                ? -120
+                : isOtherHovered
+                  ? 0
+                  : -staggerOffset;
 
               return (
                 <motion.div
@@ -197,7 +205,7 @@ export function PortfolioGallery({
           <div
             className={cn(
               "group flex overflow-hidden p-2 [--duration:40s] [--gap:1rem] [gap:var(--gap)]",
-              "flex-row"
+              "flex-row",
             )}
           >
             {Array(marqueeRepeat)
@@ -210,7 +218,7 @@ export function PortfolioGallery({
                     "animate-marquee flex-row",
                     {
                       "group-hover:[animation-play-state:paused]": pauseOnHover,
-                    }
+                    },
                   )}
                 >
                   {images.map((image, index) => (
@@ -297,7 +305,8 @@ export function PortfolioGallery({
                 transition={{ delay: 0.2 }}
               >
                 <h3 className="text-xl md:text-2xl font-serif font-bold text-foreground mb-2">
-                  {images[selectedImageIndex]?.title || images[selectedImageIndex]?.alt}
+                  {images[selectedImageIndex]?.title ||
+                    images[selectedImageIndex]?.alt}
                 </h3>
                 <p className="text-foreground/70 text-sm md:text-base">
                   Click the close button or click outside to dismiss

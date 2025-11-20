@@ -106,13 +106,19 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                     transition={{ duration: 2, repeat: Infinity }}
                   />
                 </div>
-                <h3 className="hidden md:block text-xl md:pl-20 md:text-5xl font-serif font-bold group-hover:text-accent/80 transition-colors duration-300" style={{ color: "#C79E8E" }}>
+                <h3
+                  className="hidden md:block text-xl md:pl-20 md:text-5xl font-serif font-bold group-hover:text-accent/80 transition-colors duration-300"
+                  style={{ color: "#C79E8E" }}
+                >
                   {item.title}
                 </h3>
               </div>
 
               <div className="relative pl-20 pr-4 md:pl-4 w-full">
-                <h3 className="md:hidden block text-2xl mb-4 text-left font-serif font-bold group-hover:text-accent/80 transition-colors duration-300" style={{ color: "#C79E8E" }}>
+                <h3
+                  className="md:hidden block text-2xl mb-4 text-left font-serif font-bold group-hover:text-accent/80 transition-colors duration-300"
+                  style={{ color: "#C79E8E" }}
+                >
                   {item.title}
                 </h3>
                 <div className="p-4 rounded-lg bg-gradient-to-br from-card/50 to-card/30 border border-border/50 group-hover:border-accent/40 group-hover:bg-gradient-to-br group-hover:from-card/70 group-hover:to-card/50 transition-all duration-300 group-hover:shadow-md">

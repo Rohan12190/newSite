@@ -1,5 +1,13 @@
 import { useEffect, useState } from "react";
-import { ChevronDown, ExternalLink, Sparkles, Home, User, Briefcase, Mail } from "lucide-react";
+import {
+  ChevronDown,
+  ExternalLink,
+  Sparkles,
+  Home,
+  User,
+  Briefcase,
+  Mail,
+} from "lucide-react";
 import { PortfolioGallery } from "@/components/ui/portfolio-gallery";
 import { Timeline } from "@/components/ui/timeline";
 import { FloatingNav } from "@/components/ui/floating-navbar";
@@ -103,7 +111,9 @@ export default function Index() {
             {/* Text overlay */}
             <div className="absolute inset-0 flex items-end justify-start p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                <p className="text-white text-sm font-semibold">Fashion Design</p>
+                <p className="text-white text-sm font-semibold">
+                  Fashion Design
+                </p>
                 <p className="text-white/70 text-xs">Click to explore</p>
               </div>
             </div>
@@ -124,7 +134,9 @@ export default function Index() {
               <p className="text-accent text-xs uppercase tracking-widest font-semibold">
                 Experience
               </p>
-              <h3 className="text-3xl font-serif font-bold mt-3 group-hover:text-accent transition-colors duration-300">5+</h3>
+              <h3 className="text-3xl font-serif font-bold mt-3 group-hover:text-accent transition-colors duration-300">
+                5+
+              </h3>
             </div>
             <p className="text-sm text-foreground/70">Years in Fashion</p>
           </div>
@@ -142,7 +154,9 @@ export default function Index() {
 
             <div className="text-center relative z-10">
               <ChevronDown className="w-6 h-6 text-accent mx-auto mb-2 group-hover:translate-y-2 transition-transform duration-500 animate-icon-bounce" />
-              <p className="text-sm font-semibold group-hover:text-accent transition-colors duration-300">Scroll to explore</p>
+              <p className="text-sm font-semibold group-hover:text-accent transition-colors duration-300">
+                Scroll to explore
+              </p>
             </div>
           </div>
 
@@ -161,7 +175,9 @@ export default function Index() {
             {/* Text overlay */}
             <div className="absolute inset-0 flex items-end justify-start p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                <p className="text-white text-sm font-semibold">Elegant Fashion</p>
+                <p className="text-white text-sm font-semibold">
+                  Elegant Fashion
+                </p>
                 <p className="text-white/70 text-xs">Premium Collection</p>
               </div>
             </div>
@@ -234,11 +250,7 @@ export default function Index() {
           {[
             {
               title: "Technical Mastery",
-              skills: [
-                "Pattern Drafting",
-                "Draping",
-                "Garment Construction",
-              ],
+              skills: ["Pattern Drafting", "Draping", "Garment Construction"],
             },
             {
               title: "Creative Expression",
@@ -270,7 +282,10 @@ export default function Index() {
                 </h3>
                 <ul className="space-y-3">
                   {skill.skills.map((item, i) => (
-                    <li key={i} className="text-base text-foreground/80 group-hover:text-foreground transition-colors duration-300">
+                    <li
+                      key={i}
+                      className="text-base text-foreground/80 group-hover:text-foreground transition-colors duration-300"
+                    >
                       <span className="font-semibold">{item}</span>
                     </li>
                   ))}
