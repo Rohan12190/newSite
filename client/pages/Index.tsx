@@ -172,19 +172,27 @@ export default function Index() {
       {/* Design Philosophy Section */}
       <section
         id="about"
-        className="py-20 md:py-32 px-6 md:px-12 max-w-7xl mx-auto"
+        className="py-20 md:py-32 px-6 md:px-12 max-w-7xl mx-auto relative"
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-start mb-16">
+        {/* Background pattern */}
+        <div className="absolute -top-32 -right-32 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+        <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-start mb-16 relative z-10">
           {/* Portrait */}
           <div
-            className="h-96 md:h-[500px] rounded-2xl overflow-hidden opacity-0 animate-fade-up"
+            className="h-96 md:h-[500px] rounded-2xl overflow-hidden opacity-0 animate-fade-up group relative cursor-pointer"
             style={{ animationDelay: "0.1s" }}
           >
             <img
               src="https://images.unsplash.com/photo-1549887534-7197a03d3fdc?w=600&h=700&fit=crop"
               alt="Portrait"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
+            {/* Decorative border that glows on hover */}
+            <div className="absolute inset-0 rounded-2xl border-2 border-accent/30 group-hover:border-accent/70 transition-colors duration-300" />
+            {/* Overlay on hover */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </div>
 
           {/* Philosophy Text */}
