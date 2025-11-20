@@ -154,7 +154,10 @@ export function PortfolioGallery({
                   }}
                   onHoverStart={() => setHoveredIndex(index)}
                   onHoverEnd={() => setHoveredIndex(null)}
-                  onClick={() => onImageClick?.(index)}
+                  onClick={() => {
+                    setSelectedImageIndex(index);
+                    onImageClick?.(index);
+                  }}
                 >
                   <div
                     className="relative aspect-video w-64 md:w-80 lg:w-96 rounded-xl overflow-hidden transition-transform duration-300 group-hover:scale-105"
