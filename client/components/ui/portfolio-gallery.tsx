@@ -1,18 +1,15 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, X } from "lucide-react";
+import { X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface PortfolioGalleryProps {
   title?: string;
-  archiveButton?: {
-    text: string;
-    href: string;
-  };
   images?: Array<{
     src: string;
     alt: string;
     title?: string;
+    modalSrc?: string;
   }>;
   className?: string;
   maxHeight?: number;
@@ -32,10 +29,6 @@ interface PortfolioGalleryProps {
 
 export function PortfolioGallery({
   title = "Browse my collection",
-  archiveButton = {
-    text: "View gallery",
-    href: "#",
-  },
   images: customImages,
   className = "",
   maxHeight = 120,
@@ -51,44 +44,64 @@ export function PortfolioGallery({
 
   const defaultImages = [
     {
-      src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&q=80",
-      alt: "Fashion Design",
+      src: "/card1.png",
+      alt: "Card 1",
+      title: "Card 1",
+      modalSrc: "/back1.png",
     },
     {
-      src: "https://images.unsplash.com/photo-1595777712933-a3f0b06755c9?w=800&h=600&fit=crop&q=80",
-      alt: "Designer Collection",
+      src: "/card2.jpeg",
+      alt: "Card 2",
+      title: "Card 2",
+      modalSrc: "/back2.png",
     },
     {
-      src: "https://images.unsplash.com/photo-1550274455-11107a72e8a8?w=800&h=600&fit=crop&q=80",
-      alt: "Elegant Fashion",
+      src: "/card3.jpeg",
+      alt: "Card 3",
+      title: "Card 3",
+      modalSrc: "/back3.png",
     },
     {
-      src: "https://images.unsplash.com/photo-1558769187-a2e14e5fa5b8?w=800&h=600&fit=crop&q=80",
-      alt: "Premium Styling",
+      src: "/card4.jpeg",
+      alt: "Card 4",
+      title: "Card 4",
+      modalSrc: "/back4.png",
     },
     {
-      src: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&h=600&fit=crop&q=80",
-      alt: "Luxury Design",
+      src: "/card5.png",
+      alt: "Card 5",
+      title: "Card 5",
+      modalSrc: "/back5.png",
     },
     {
-      src: "https://images.unsplash.com/photo-1612336307429-8a88e8d08dbb?w=800&h=600&fit=crop&q=80",
-      alt: "Fashion Innovation",
+      src: "/card6.png",
+      alt: "Card 6",
+      title: "Card 6",
+      modalSrc: "/back6.png",
     },
     {
-      src: "https://images.unsplash.com/photo-1539008588199-487012d95a81?w=800&h=600&fit=crop&q=80",
-      alt: "Creative Design",
+      src: "/card7.png",
+      alt: "Card 7",
+      title: "Card 7",
+      modalSrc: "/back7.png",
     },
     {
-      src: "https://images.unsplash.com/photo-1551028826-f4804a6dba3b?w=800&h=600&fit=crop&q=80",
-      alt: "Studio Work",
+      src: "/card8.png",
+      alt: "Card 8",
+      title: "Card 8",
+      modalSrc: "/back8.png",
     },
     {
-      src: "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=800&h=600&fit=crop&q=80",
-      alt: "Fashion Forward",
+      src: "/card9.png",
+      alt: "Card 9",
+      title: "Card 9",
+      modalSrc: "/back9.png",
     },
     {
-      src: "https://images.unsplash.com/photo-1595614535368-6b4ee3b999b3?w=800&h=600&fit=crop&q=80",
-      alt: "Signature Pieces",
+      src: "/card10.png",
+      alt: "Card 10",
+      title: "Card 10",
+      modalSrc: "/back10.png",
     },
   ];
 
@@ -106,24 +119,19 @@ export function PortfolioGallery({
 
       <div className="max-w-7xl mx-auto bg-background/50 backdrop-blur-sm rounded-3xl border border-border overflow-hidden relative">
         {/* Header Section */}
-        <div className="relative z-10 text-center pt-16 pb-8 px-8">
-          <h2 className="text-4xl md:text-6xl font-serif font-bold text-foreground mb-8 text-balance">
+        <div className="relative z-10 text-center pt-16 pb-12 px-8">
+          <h2 className="text-4xl md:text-6xl font-serif font-bold text-foreground mb-4 text-balance">
             {title}
           </h2>
-
-          <a
-            href={archiveButton.href}
-            className="inline-flex items-center gap-3 bg-foreground text-background px-6 py-3 rounded-full font-medium hover:bg-foreground/90 transition-colors group mb-20"
-          >
-            <span>{archiveButton.text}</span>
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </a>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            Explore my creative work and visual storytelling through carefully curated collections
+          </p>
         </div>
 
         {/* Desktop 3D overlapping layout - hidden on mobile */}
-        <div className="hidden md:block relative overflow-hidden h-[400px] -mb-[200px]">
+        <div className="hidden md:block relative overflow-hidden h-[550px] -mb-[250px]">
           <div
-            className={`flex ${spacing} pb-8 pt-40 items-end justify-center`}
+            className={`flex ${spacing} pb-8 pt-60 items-end justify-center`}
           >
             {images.map((image, index) => {
               // Calculate stagger height - peak in middle, descending to edges
@@ -185,12 +193,16 @@ export function PortfolioGallery({
                     <img
                       src={image.src || "/placeholder.svg"}
                       alt={image.alt}
-                      className="w-full h-full object-cover object-left-top group-hover:brightness-110 transition-all duration-300"
+                      className="w-full h-full object-cover object-top group-hover:brightness-110 transition-all duration-300"
                       loading="lazy"
                       decoding="async"
                     />
-                    {/* Overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        {/* Overlay on hover */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        {/* Title overlay */}
+                        <div className="absolute bottom-0 left-0 right-0 p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <h3 className="text-white font-medium text-xs truncate">{image.title}</h3>
+                        </div>
                     {/* Decorative border */}
                     <div className="absolute inset-0 rounded-xl border border-accent/0 group-hover:border-accent/50 transition-colors duration-300" />
                   </div>
@@ -244,7 +256,7 @@ export function PortfolioGallery({
                         <img
                           src={image.src || "/placeholder.svg"}
                           alt={image.alt}
-                          className="w-full h-full object-cover object-left-top group-hover:brightness-110 transition-all duration-300"
+                          className="w-full h-full object-cover object-center group-hover:brightness-110 transition-all duration-300"
                           loading="lazy"
                           decoding="async"
                         />
@@ -282,7 +294,7 @@ export function PortfolioGallery({
               {/* Image container - 3/4 of screen */}
               <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-black/50">
                 <img
-                  src={images[selectedImageIndex]?.src || "/placeholder.svg"}
+                  src={images[selectedImageIndex]?.modalSrc || images[selectedImageIndex]?.src || "/placeholder.svg"}
                   alt={images[selectedImageIndex]?.alt || "Selected image"}
                   className="w-full h-full object-cover"
                 />
@@ -296,22 +308,6 @@ export function PortfolioGallery({
               >
                 <X className="w-8 h-8 md:w-10 md:h-10" />
               </button>
-
-              {/* Image title and info section */}
-              <motion.div
-                className="mt-6 p-4 md:p-6 bg-card rounded-lg border border-border"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-              >
-                <h3 className="text-xl md:text-2xl font-serif font-bold text-foreground mb-2">
-                  {images[selectedImageIndex]?.title ||
-                    images[selectedImageIndex]?.alt}
-                </h3>
-                <p className="text-foreground/70 text-sm md:text-base">
-                  Click the close button or click outside to dismiss
-                </p>
-              </motion.div>
             </motion.div>
           </motion.div>
         )}

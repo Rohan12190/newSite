@@ -47,7 +47,9 @@ export const FloatingNav = ({
           </a>
         ))}
         <a
-          href="#archives"
+          href="https://www.behance.net/gallery/221695531/portfolio"
+          target="_blank"
+          rel="noopener noreferrer"
           className="border text-sm font-semibold relative border-border text-foreground px-4 py-2 rounded-full hover:bg-foreground/5 transition-colors inline-block"
         >
           <span>Portfolio</span>

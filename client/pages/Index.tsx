@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
 import {
-  ChevronDown,
   ExternalLink,
   Sparkles,
   Home,
@@ -37,24 +35,32 @@ export default function Index() {
   ];
 
   return (
-    <div className="w-full bg-background text-foreground">
+    <div className="w-full bg-background text-foreground relative">
+      {/* Gold Gradient Spray Effects */}
+      <div className="gold-spray-1"></div>
+      <div className="gold-spray-2"></div>
+      <div className="gold-spray-3"></div>
+      <div className="gold-spray-4"></div>
+      <div className="gold-spray-5"></div>
+      <div className="gold-spray-6"></div>
+
       <FloatingNav navItems={navItems} />
 
       {/* Bento Hero Section */}
-      <section className="relative pt-20 pb-20 px-6 md:px-12 max-w-7xl mx-auto">
+      <section className="relative pt-5 pb-20 px-8 md:px-16 max-w-screen-2xl mx-auto">
         {/* Decorative Background Elements */}
         <div className="absolute top-0 left-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
         <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
 
-        <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[300px] md:auto-rows-[350px]">
+        <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[350px] md:auto-rows-[400px]">
           {/* Main Hero Box - Spans 2 cols x 2 rows */}
           <div
             className="md:col-span-2 md:row-span-2 rounded-2xl overflow-hidden group cursor-pointer relative opacity-0 animate-fade-up"
             style={{ animationDelay: "0.1s" }}
           >
             <img
-              src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1000&h=800&fit=crop"
+              src="/main.jpeg"
               alt="Khushi Lohchab"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
@@ -63,7 +69,7 @@ export default function Index() {
               <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-2">
                 Fashion Designer
               </p>
-              <h1 className="text-5xl md:text-6xl font-serif font-bold text-white">
+              <h1 className="text-5xl md:text-6xl font-serif font-bold text-accent">
                 KHUSHI
               </h1>
               <h1 className="text-5xl md:text-6xl font-serif font-bold text-accent">
@@ -75,7 +81,12 @@ export default function Index() {
           {/* Top Right - Small accent box */}
           <div
             className="rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 backdrop-blur-md border border-primary/30 p-6 flex flex-col justify-between opacity-0 animate-fade-up hover:border-accent/60 hover:shadow-lg transition-all duration-300 cursor-pointer relative group overflow-hidden"
-            style={{ animationDelay: "0.2s" }}
+            style={{
+              animationDelay: "0.2s",
+              backgroundImage: 'url(/main5.jpeg)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
           >
             {/* Background pattern */}
             <div className="absolute inset-0 bg-pattern-dots opacity-0 group-hover:opacity-50 transition-opacity duration-300" />
@@ -102,7 +113,7 @@ export default function Index() {
             style={{ animationDelay: "0.3s" }}
           >
             <img
-              src="https://images.unsplash.com/photo-1595777712933-a3f0b06755c9?w=600&h=350&fit=crop"
+              src="/main3.jpeg"
               alt="Fashion Design"
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
             />
@@ -114,49 +125,60 @@ export default function Index() {
                 <p className="text-white text-sm font-semibold">
                   Fashion Design
                 </p>
-                <p className="text-white/70 text-xs">Click to explore</p>
               </div>
             </div>
           </div>
 
           {/* Bottom Left - Stats */}
           <div
-            className="rounded-2xl bg-gradient-to-br from-secondary/20 to-primary/20 backdrop-blur-md border border-secondary/30 p-6 flex flex-col justify-between opacity-0 animate-fade-up hover:border-accent/60 hover:shadow-lg transition-all duration-300 group relative overflow-hidden"
-            style={{ animationDelay: "0.4s" }}
+            className="rounded-2xl bg-gradient-to-br from-secondary/20 to-primary/20 backdrop-blur-md border border-secondary/30 p-6 flex flex-col justify-between opacity-0 animate-fade-up hover:border-accent/60 hover:shadow-lg transition-all duration-300 cursor-pointer relative group overflow-hidden"
+            style={{
+              animationDelay: "0.4s",
+              backgroundImage: 'url(/main6.jpeg)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
           >
             {/* Background pattern */}
             <div className="absolute inset-0 bg-pattern-grid opacity-0 group-hover:opacity-30 transition-opacity duration-300" />
 
-            {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-accent/0 to-accent/0 group-hover:from-accent/10 group-hover:to-accent/5 transition-all duration-300" />
+            {/* Gradient overlay on hover */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-            <div className="relative z-10">
-              <p className="text-accent text-xs uppercase tracking-widest font-semibold">
-                Experience
-              </p>
-              <h3 className="text-3xl font-serif font-bold mt-3 group-hover:text-accent transition-colors duration-300">
-                5+
-              </h3>
+            {/* Text overlay */}
+            <div className="absolute inset-0 flex items-end justify-start p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                <p className="text-white text-sm font-semibold">
+                  Experience
+                </p>
+                <h3 className="text-5xl font-serif font-bold mt-2 text-white group-hover:scale-110 transition-transform duration-300">
+                  5+
+                </h3>
+                <p className="text-white/70 text-xs">Years in Fashion</p>
+              </div>
             </div>
-            <p className="text-sm text-foreground/70">Years in Fashion</p>
           </div>
 
-          {/* Bottom Middle - CTA Box */}
+          {/* Bottom Middle - Image box */}
           <div
-            className="rounded-2xl bg-gradient-to-br from-accent/20 to-accent/10 backdrop-blur-md border border-accent/30 p-6 flex items-center justify-center opacity-0 animate-fade-up hover:border-accent/80 transition-all duration-300 cursor-pointer group hover:shadow-lg relative overflow-hidden"
+            className="rounded-2xl overflow-hidden opacity-0 animate-fade-up relative group cursor-pointer"
             style={{ animationDelay: "0.5s" }}
           >
-            {/* Shimmer effect on hover */}
-            <div className="absolute inset-0 animate-shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-            {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-accent/0 to-accent/0 group-hover:from-accent/15 group-hover:to-accent/10 transition-all duration-300" />
-
-            <div className="text-center relative z-10">
-              <ChevronDown className="w-6 h-6 text-accent mx-auto mb-2 group-hover:translate-y-2 transition-transform duration-500 animate-icon-bounce" />
-              <p className="text-sm font-semibold group-hover:text-accent transition-colors duration-300">
-                Scroll to explore
-              </p>
+            <img
+              src="/main4.jpeg"
+              alt="Scroll to Experience"
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            />
+            {/* Gradient overlay on hover */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            {/* Text overlay */}
+            <div className="absolute inset-0 flex items-end justify-start p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                <p className="text-white text-sm font-semibold">
+                  Scroll to Experience
+                </p>
+                <p className="text-white/70 text-xs">Explore my journey</p>
+              </div>
             </div>
           </div>
 
@@ -166,7 +188,7 @@ export default function Index() {
             style={{ animationDelay: "0.6s" }}
           >
             <img
-              src="https://images.unsplash.com/photo-1578689327459-bda7361f54a5?w=600&h=350&fit=crop"
+              src="/main2.jpeg"
               alt="Elegant Fashion"
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
             />
@@ -201,9 +223,9 @@ export default function Index() {
             style={{ animationDelay: "0.1s" }}
           >
             <img
-              src="https://images.unsplash.com/photo-1549887534-7197a03d3fdc?w=600&h=700&fit=crop"
+              src="/Potrait2.jpeg"
               alt="Portrait"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
             />
             {/* Decorative border that glows on hover */}
             <div className="absolute inset-0 rounded-2xl border-2 border-accent/30 group-hover:border-accent/70 transition-colors duration-300" />
@@ -218,7 +240,7 @@ export default function Index() {
                 About Me
               </p>
               <h2
-                className="text-5xl md:text-6xl font-serif font-bold opacity-0 animate-fade-up"
+                className="text-5xl md:text-6xl font-serif font-bold opacity-0 animate-fade-up text-purple-custom"
                 style={{ animationDelay: "0.2s" }}
               >
                 Design Philosophy
@@ -229,13 +251,13 @@ export default function Index() {
               className="space-y-6 text-base md:text-lg leading-relaxed opacity-0 animate-fade-up"
               style={{ animationDelay: "0.3s" }}
             >
-              <p className="text-foreground/90">
+              <p className="text-foreground/90 opacity-0 animate-text-fade-in" style={{ animationDelay: "0.5s" }}>
                 My approach to fashion design merges meticulous technical
                 craftsmanship with bold creative vision. Every piece tells a
                 story through intentional silhouettes, innovative construction,
                 and thoughtful material selection.
               </p>
-              <p className="text-foreground/90">
+              <p className="text-foreground/90 opacity-0 animate-text-fade-in" style={{ animationDelay: "0.7s" }}>
                 I believe in designing for the present while honoring textile
                 traditions, creating pieces that celebrate individuality and
                 empower the wearer. Fashion is not just about aesthetics—it's a
@@ -300,10 +322,6 @@ export default function Index() {
       <div id="projects">
         <PortfolioGallery
           title="Complete Portfolio Gallery"
-          archiveButton={{
-            text: "View all works",
-            href: "#contact",
-          }}
           className="mb-0"
         />
       </div>

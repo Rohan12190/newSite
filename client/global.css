@@ -7,69 +7,69 @@
 
 @layer base {
   /**
-   * Rich Cream & Rose Gold Premium Theme
-   * Warm, luxurious palette with cream background and rose gold accents
+   * Golden Luxury Theme
+   * Elegant golden palette with warm gold accents and sophisticated neutrals
   */
   :root {
-    /* Background - Rich Cream */
-    --background: 40 50% 96.8%;
-    --foreground: 15 30% 25%;
+    /* Background - Custom Beige */
+    --background: 39 18% 96%;
+    --foreground: 0 0% 0%;
 
-    /* Cards - Slightly warmer cream */
-    --card: 40 45% 97.8%;
-    --card-foreground: 15 30% 25%;
+    /* Cards - Soft Tint */
+    --card: 45 20% 90%;
+    --card-foreground: 0 0% 0%;
 
     /* Popover */
-    --popover: 40 45% 97.8%;
-    --popover-foreground: 15 30% 25%;
+    --popover: 45 20% 90%;
+    --popover-foreground: 0 0% 0%;
 
-    /* Primary - Deep Brown */
-    --primary: 15 30% 25%;
-    --primary-foreground: 40 50% 96.8%;
+    /* Primary - Rich Gold */
+    --primary: 45 85% 55%;
+    --primary-foreground: 0 0% 0%;
 
-    /* Secondary - Soft Sage */
-    --secondary: 80 25% 60%;
-    --secondary-foreground: 15 30% 25%;
+    /* Secondary - Warm Taupe */
+    --secondary: 25 20% 65%;
+    --secondary-foreground: 0 0% 0%;
 
-    /* Muted - Warm Gray */
-    --muted: 40 20% 70%;
-    --muted-foreground: 15 20% 45%;
+    /* Muted - Custom Purple for small paragraphs */
+    --muted: 45 15% 80%;
+    --muted-foreground: 308 37% 33%;
 
-    /* Accent - Rose Gold */
-    --accent: 10 65% 65%;
-    --accent-foreground: 40 50% 96.8%;
+    /* Accent - Bright Gold */
+    --accent: 45 90% 60%;
+    --accent-foreground: 0 0% 0%;
 
     /* Destructive */
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 40 50% 96.8%;
+    --destructive-foreground: 45 25% 97%;
 
     /* Border & Input */
-    --border: 40 30% 88%;
-    --input: 40 35% 93%;
-    --ring: 10 65% 65%;
+    --border: 45 20% 85%;
+    --input: 45 25% 92%;
+    --ring: 45 90% 60%;
 
     --radius: 0.75rem;
 
     /* Sidebar */
-    --sidebar-background: 40 45% 97.8%;
-    --sidebar-foreground: 15 30% 25%;
-    --sidebar-primary: 15 30% 25%;
-    --sidebar-primary-foreground: 40 50% 96.8%;
-    --sidebar-accent: 80 25% 60%;
-    --sidebar-accent-foreground: 15 30% 25%;
-    --sidebar-border: 40 30% 88%;
-    --sidebar-ring: 10 65% 65%;
+    --sidebar-background: 45 20% 90%;
+    --sidebar-foreground: 0 0% 0%;
+    --sidebar-primary: 45 85% 55%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 25 20% 65%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 45 20% 85%;
+    --sidebar-ring: 45 90% 60%;
 
     /* Project Colors */
-    --color-florentine: 80 25% 60%;
-    --color-shark: 15 30% 25%;
-    --color-raymond: 10 65% 65%;
-    --color-aquadia: 50 40% 70%;
+    --color-florentine: 25 20% 65%;
+    --color-shark: 0 0% 0%;
+    --color-raymond: 45 90% 60%;
+    --color-aquadia: 180 30% 70%;
 
     /* Metallics & Accents */
     --color-rose-gold: 10 65% 65%;
-    --color-gold: 40 80% 50%;
-    --color-cream: 40 50% 96.8%;
+    --color-gold: 45 85% 55%;
+    --color-cream: 45 25% 87%;
 
     /* Typography */
     --font-serif: "Playfair Display", serif;
@@ -124,6 +124,8 @@
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-sans);
+    overflow-x: hidden;
+    padding-left: 1rem;
   }
 
   h1,
@@ -147,23 +149,14 @@
     white-space: pre;
   }
 
-  /* Scrollbar Styling */
+  /* Scrollbar Styling - Hidden */
   ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+    display: none;
   }
 
-  ::-webkit-scrollbar-track {
-    background: hsl(var(--background));
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: hsl(var(--accent));
-    border-radius: var(--radius);
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--accent) / 0.8);
+  /* For Firefox */
+  * {
+    scrollbar-width: none;
   }
 
   /* Marquee animation for gallery */
@@ -268,7 +261,7 @@
   .bg-pattern-dots {
     background-image: radial-gradient(
       circle,
-      rgba(199, 158, 142, 0.1) 1px,
+      rgba(255, 215, 0, 0.1) 1px,
       transparent 1px
     );
     background-size: 20px 20px;
@@ -277,8 +270,8 @@
   /* Background pattern - grid */
   .bg-pattern-grid {
     background-image:
-      linear-gradient(rgba(199, 158, 142, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(199, 158, 142, 0.05) 1px, transparent 1px);
+      linear-gradient(rgba(255, 215, 0, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 215, 0, 0.05) 1px, transparent 1px);
     background-size: 30px 30px;
   }
 
@@ -314,7 +307,7 @@
     background: linear-gradient(
       90deg,
       transparent,
-      rgba(199, 158, 142, 0.2),
+      rgba(255, 215, 0, 0.2),
       transparent
     );
     background-size: 200px 100%;
@@ -324,13 +317,13 @@
   /* Smooth border glow */
   .border-glow {
     position: relative;
-    border: 2px solid rgba(199, 158, 142, 0.3);
+    border: 2px solid rgba(255, 215, 0, 0.3);
     transition: all 0.3s ease;
   }
 
   .border-glow:hover {
-    border-color: rgba(199, 158, 142, 0.8);
-    box-shadow: 0 0 20px rgba(199, 158, 142, 0.4);
+    border-color: rgba(255, 215, 0, 0.8);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
   }
 
   /* Icon animation */
@@ -346,5 +339,168 @@
 
   .animate-icon-bounce {
     animation: icon-bounce 2s ease-in-out infinite;
+  }
+
+  /* Text fade-in animation */
+  @keyframes text-fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-text-fade-in {
+    animation: text-fade-in 1s ease-out forwards;
+  }
+
+  /* Gold Gradient Spray Effects */
+  .gold-spray-1 {
+    position: fixed;
+    top: 10%;
+    left: 5%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle at 30% 40%, rgba(255, 215, 0, 0.15) 0%, rgba(255, 215, 0, 0.08) 40%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    animation: gold-spray-float 8s ease-in-out infinite;
+  }
+
+  .gold-spray-2 {
+    position: fixed;
+    top: 60%;
+    right: 8%;
+    width: 300px;
+    height: 300px;
+    background: conic-gradient(from 45deg at 60% 50%, rgba(255, 215, 0, 0.12) 0deg, rgba(255, 215, 0, 0.06) 90deg, transparent 180deg);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    animation: gold-spray-float-reverse 10s ease-in-out infinite;
+  }
+
+  .gold-spray-3 {
+    position: fixed;
+    top: 30%;
+    right: 20%;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(ellipse at 70% 30%, rgba(255, 215, 0, 0.18) 0%, rgba(255, 215, 0, 0.09) 50%, transparent 80%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    animation: gold-spray-drift 12s ease-in-out infinite;
+  }
+
+  .gold-spray-4 {
+    position: fixed;
+    bottom: 20%;
+    left: 15%;
+    width: 250px;
+    height: 250px;
+    background: conic-gradient(from 135deg at 40% 60%, rgba(255, 215, 0, 0.14) 0deg, rgba(255, 215, 0, 0.07) 120deg, transparent 240deg);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    animation: gold-spray-float 9s ease-in-out infinite reverse;
+  }
+
+  .gold-spray-5 {
+    position: fixed;
+    top: 80%;
+    left: 70%;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.16) 0%, rgba(255, 215, 0, 0.08) 45%, transparent 75%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    animation: gold-spray-drift-reverse 11s ease-in-out infinite;
+  }
+
+  .gold-spray-6 {
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    width: 220px;
+    height: 220px;
+    background: conic-gradient(from 270deg at 50% 50%, rgba(255, 215, 0, 0.13) 0deg, rgba(255, 215, 0, 0.06) 150deg, transparent 300deg);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    animation: gold-spray-float 7s ease-in-out infinite;
+  }
+
+  @keyframes gold-spray-float {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+      opacity: 0.6;
+    }
+    25% {
+      transform: translateY(-10px) rotate(2deg);
+      opacity: 0.8;
+    }
+    50% {
+      transform: translateY(-5px) rotate(-1deg);
+      opacity: 0.7;
+    }
+    75% {
+      transform: translateY(-15px) rotate(1deg);
+      opacity: 0.9;
+    }
+  }
+
+  @keyframes gold-spray-float-reverse {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+      opacity: 0.7;
+    }
+    25% {
+      transform: translateY(10px) rotate(-2deg);
+      opacity: 0.9;
+    }
+    50% {
+      transform: translateY(5px) rotate(1deg);
+      opacity: 0.8;
+    }
+    75% {
+      transform: translateY(15px) rotate(-1deg);
+      opacity: 0.6;
+    }
+  }
+
+  @keyframes gold-spray-drift {
+    0%, 100% {
+      transform: translateX(0px) translateY(0px) scale(1);
+      opacity: 0.5;
+    }
+    33% {
+      transform: translateX(8px) translateY(-8px) scale(1.05);
+      opacity: 0.8;
+    }
+    66% {
+      transform: translateX(-5px) translateY(5px) scale(0.95);
+      opacity: 0.6;
+    }
+  }
+
+  @keyframes gold-spray-drift-reverse {
+    0%, 100% {
+      transform: translateX(0px) translateY(0px) scale(1);
+      opacity: 0.6;
+    }
+    33% {
+      transform: translateX(-8px) translateY(8px) scale(1.05);
+      opacity: 0.9;
+    }
+    66% {
+      transform: translateX(5px) translateY(-5px) scale(0.95);
+      opacity: 0.7;
+    }
   }
 }
