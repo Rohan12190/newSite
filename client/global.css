@@ -214,4 +214,126 @@
   .animate-noise {
     animation: noise-animation 4s ease-in-out infinite;
   }
+
+  /* Smooth card hover animations */
+  @keyframes card-lift {
+    0% {
+      transform: translateY(0px);
+    }
+    100% {
+      transform: translateY(-8px);
+    }
+  }
+
+  .hover:hover {
+    animation: card-lift 0.3s ease-out forwards;
+  }
+
+  /* Floating animation */
+  @keyframes float-gentle {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+
+  .animate-float {
+    animation: float-gentle 3s ease-in-out infinite;
+  }
+
+  /* Glow effect */
+  @keyframes glow-pulse {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(199, 158, 142, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(199, 158, 142, 0.6);
+    }
+  }
+
+  .hover\:glow:hover {
+    animation: glow-pulse 1.5s ease-in-out;
+  }
+
+  /* Background pattern - dots */
+  .bg-pattern-dots {
+    background-image:
+      radial-gradient(circle, rgba(199, 158, 142, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  /* Background pattern - grid */
+  .bg-pattern-grid {
+    background-image:
+      linear-gradient(rgba(199, 158, 142, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(199, 158, 142, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  /* Gradient overlay animation */
+  @keyframes gradient-shift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .animate-gradient-shift {
+    background-size: 200% 200%;
+    animation: gradient-shift 6s ease infinite;
+  }
+
+  /* Shimmer effect */
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(199, 158, 142, 0.2),
+      transparent
+    );
+    background-size: 200px 100%;
+    animation: shimmer 3s infinite;
+  }
+
+  /* Smooth border glow */
+  .border-glow {
+    position: relative;
+    border: 2px solid rgba(199, 158, 142, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .border-glow:hover {
+    border-color: rgba(199, 158, 142, 0.8);
+    box-shadow: 0 0 20px rgba(199, 158, 142, 0.4);
+  }
+
+  /* Icon animation */
+  @keyframes icon-bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-4px);
+    }
+  }
+
+  .animate-icon-bounce {
+    animation: icon-bounce 2s ease-in-out infinite;
+  }
 }
