@@ -131,12 +131,18 @@ export default function Index() {
 
           {/* Bottom Middle - CTA Box */}
           <div
-            className="rounded-2xl bg-gradient-to-br from-accent/20 to-accent/10 backdrop-blur-md border border-accent/30 p-6 flex items-center justify-center opacity-0 animate-fade-up hover:border-accent/60 transition-colors duration-300 cursor-pointer group"
+            className="rounded-2xl bg-gradient-to-br from-accent/20 to-accent/10 backdrop-blur-md border border-accent/30 p-6 flex items-center justify-center opacity-0 animate-fade-up hover:border-accent/80 transition-all duration-300 cursor-pointer group hover:shadow-lg relative overflow-hidden"
             style={{ animationDelay: "0.5s" }}
           >
-            <div className="text-center">
-              <ChevronDown className="w-6 h-6 text-accent mx-auto mb-2 group-hover:translate-y-1 transition-transform duration-300" />
-              <p className="text-sm font-semibold">Scroll to explore</p>
+            {/* Shimmer effect on hover */}
+            <div className="absolute inset-0 animate-shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+            {/* Gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-accent/0 to-accent/0 group-hover:from-accent/15 group-hover:to-accent/10 transition-all duration-300" />
+
+            <div className="text-center relative z-10">
+              <ChevronDown className="w-6 h-6 text-accent mx-auto mb-2 group-hover:translate-y-2 transition-transform duration-500 animate-icon-bounce" />
+              <p className="text-sm font-semibold group-hover:text-accent transition-colors duration-300">Scroll to explore</p>
             </div>
           </div>
 
