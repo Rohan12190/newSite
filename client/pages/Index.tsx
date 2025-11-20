@@ -66,17 +66,25 @@ export default function Index() {
 
           {/* Top Right - Small accent box */}
           <div
-            className="rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 backdrop-blur-md border border-primary/30 p-6 flex flex-col justify-between opacity-0 animate-fade-up"
+            className="rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 backdrop-blur-md border border-primary/30 p-6 flex flex-col justify-between opacity-0 animate-fade-up hover:border-accent/60 hover:shadow-lg transition-all duration-300 cursor-pointer relative group overflow-hidden"
             style={{ animationDelay: "0.2s" }}
           >
-            <Sparkles className="w-8 h-8 text-accent" />
-            <div>
-              <p className="text-accent text-xs uppercase tracking-widest font-semibold">
-                Specialty
-              </p>
-              <h3 className="text-lg font-serif font-bold mt-2">
-                Couture Design
-              </h3>
+            {/* Background pattern */}
+            <div className="absolute inset-0 bg-pattern-dots opacity-0 group-hover:opacity-50 transition-opacity duration-300" />
+
+            {/* Gradient overlay on hover */}
+            <div className="absolute inset-0 bg-gradient-to-br from-accent/0 to-accent/0 group-hover:from-accent/10 group-hover:to-accent/5 transition-all duration-300" />
+
+            <div className="relative z-10">
+              <Sparkles className="w-8 h-8 text-accent animate-icon-bounce" />
+              <div>
+                <p className="text-accent text-xs uppercase tracking-widest font-semibold">
+                  Specialty
+                </p>
+                <h3 className="text-lg font-serif font-bold mt-2 group-hover:text-accent transition-colors duration-300">
+                  Couture Design
+                </h3>
+              </div>
             </div>
           </div>
 
