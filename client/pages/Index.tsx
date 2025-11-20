@@ -111,14 +111,20 @@ export default function Index() {
 
           {/* Bottom Left - Stats */}
           <div
-            className="rounded-2xl bg-gradient-to-br from-secondary/20 to-primary/20 backdrop-blur-md border border-secondary/30 p-6 flex flex-col justify-between opacity-0 animate-fade-up"
+            className="rounded-2xl bg-gradient-to-br from-secondary/20 to-primary/20 backdrop-blur-md border border-secondary/30 p-6 flex flex-col justify-between opacity-0 animate-fade-up hover:border-accent/60 hover:shadow-lg transition-all duration-300 group relative overflow-hidden"
             style={{ animationDelay: "0.4s" }}
           >
-            <div>
+            {/* Background pattern */}
+            <div className="absolute inset-0 bg-pattern-grid opacity-0 group-hover:opacity-30 transition-opacity duration-300" />
+
+            {/* Gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-accent/0 to-accent/0 group-hover:from-accent/10 group-hover:to-accent/5 transition-all duration-300" />
+
+            <div className="relative z-10">
               <p className="text-accent text-xs uppercase tracking-widest font-semibold">
                 Experience
               </p>
-              <h3 className="text-3xl font-serif font-bold mt-3">5+</h3>
+              <h3 className="text-3xl font-serif font-bold mt-3 group-hover:text-accent transition-colors duration-300">5+</h3>
             </div>
             <p className="text-sm text-foreground/70">Years in Fashion</p>
           </div>
