@@ -164,7 +164,7 @@ export function PortfolioGallery({
                   }}
                 >
                   <div
-                    className="relative aspect-video w-64 md:w-80 lg:w-96 rounded-xl overflow-hidden transition-transform duration-300 group-hover:scale-105"
+                    className="relative aspect-video w-64 md:w-80 lg:w-96 rounded-xl overflow-hidden transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl"
                     style={{
                       boxShadow: `
                         rgba(0, 0, 0, 0.01) 0.796192px 0px 0.796192px 0px,
@@ -177,10 +177,14 @@ export function PortfolioGallery({
                     <img
                       src={image.src || "/placeholder.svg"}
                       alt={image.alt}
-                      className="w-full h-full object-cover object-left-top"
+                      className="w-full h-full object-cover object-left-top group-hover:brightness-110 transition-all duration-300"
                       loading="lazy"
                       decoding="async"
                     />
+                    {/* Overlay on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    {/* Decorative border */}
+                    <div className="absolute inset-0 rounded-xl border border-accent/0 group-hover:border-accent/50 transition-colors duration-300" />
                   </div>
                 </motion.div>
               );
