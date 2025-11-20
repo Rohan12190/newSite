@@ -255,19 +255,27 @@ export default function Index() {
           ].map((skill, idx) => (
             <div
               key={idx}
-              className="p-8 rounded-2xl bg-gradient-to-br from-card to-card/50 border border-border hover:border-accent/50 transition-colors duration-300 opacity-0 animate-fade-up"
+              className="p-8 rounded-2xl bg-gradient-to-br from-card to-card/50 border border-border hover:border-accent/70 hover:shadow-lg transition-all duration-300 opacity-0 animate-fade-up group relative overflow-hidden cursor-pointer"
               style={{ animationDelay: `${0.4 + idx * 0.1}s` }}
             >
-              <h3 className="text-xl font-serif font-bold text-accent mb-6">
-                {skill.title}
-              </h3>
-              <ul className="space-y-3">
-                {skill.skills.map((item, i) => (
-                  <li key={i} className="text-base text-foreground/80">
-                    <span className="font-semibold">{item}</span>
-                  </li>
-                ))}
-              </ul>
+              {/* Background pattern */}
+              <div className="absolute inset-0 bg-pattern-dots opacity-0 group-hover:opacity-40 transition-opacity duration-300" />
+
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-accent/0 to-accent/0 group-hover:from-accent/10 group-hover:to-accent/5 transition-all duration-300" />
+
+              <div className="relative z-10">
+                <h3 className="text-xl font-serif font-bold text-accent mb-6 group-hover:text-accent transition-colors duration-300">
+                  {skill.title}
+                </h3>
+                <ul className="space-y-3">
+                  {skill.skills.map((item, i) => (
+                    <li key={i} className="text-base text-foreground/80 group-hover:text-foreground transition-colors duration-300">
+                      <span className="font-semibold">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           ))}
         </div>
