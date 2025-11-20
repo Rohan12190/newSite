@@ -90,14 +90,23 @@ export default function Index() {
 
           {/* Middle Right - Image box */}
           <div
-            className="rounded-2xl overflow-hidden opacity-0 animate-fade-up"
+            className="rounded-2xl overflow-hidden opacity-0 animate-fade-up relative group cursor-pointer"
             style={{ animationDelay: "0.3s" }}
           >
             <img
               src="https://images.unsplash.com/photo-1595777712933-a3f0b06755c9?w=600&h=350&fit=crop"
               alt="Fashion Design"
-              className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
             />
+            {/* Gradient overlay on hover */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            {/* Text overlay */}
+            <div className="absolute inset-0 flex items-end justify-start p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                <p className="text-white text-sm font-semibold">Fashion Design</p>
+                <p className="text-white/70 text-xs">Click to explore</p>
+              </div>
+            </div>
           </div>
 
           {/* Bottom Left - Stats */}
