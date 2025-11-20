@@ -98,7 +98,11 @@ export function PortfolioGallery({
       className={`relative min-h-screen py-20 px-4 bg-background ${className}`}
       id="archives"
     >
-      <div className="max-w-7xl mx-auto bg-background/50 backdrop-blur-sm rounded-3xl border border-border overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -z-10" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -z-10" />
+
+      <div className="max-w-7xl mx-auto bg-background/50 backdrop-blur-sm rounded-3xl border border-border overflow-hidden relative">
         {/* Header Section */}
         <div className="relative z-10 text-center pt-16 pb-8 px-8">
           <h2 className="text-4xl md:text-6xl font-serif font-bold text-foreground mb-8 text-balance">
